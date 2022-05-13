@@ -70,36 +70,6 @@ def plotar_grafico(titulo='Title', x=None, y=None, xlabel='x', ylabel='y'):
     plt.show()
 
 
-def plot_duplo(titulo1='Title', x1=None, y1=None, xlabel1='x', ylabel1='y', legenda1='legenda1',
-               titulo2='Title', x2=None, y2=None, xlabel2='x', ylabel2='y', legenda2='legenda2'):
-    
-    # Tamanho da area dos graficos
-    plt.figure(figsize=(7, 5))
-
-    # Area do primeiro grafico
-    plt.subplot(2, 1, 1)
-    plt.plot(x1, y1, color = 'royalblue')
-    plt.title(titulo1)
-    plt.xlabel(xlabel1)
-    plt.ylabel(ylabel1)
-    blue_patch = mpatches.Patch(color = 'royalblue', label = legenda1)
-    plt.legend(handles = [blue_patch])
-    plt.grid()
-
-    # Area do segundo grafico
-    plt.subplot(2, 1, 2)
-    plt.plot(x2, y2, color = 'purple')
-    plt.title(titulo2)
-    plt.xlabel(xlabel2)
-    plt.ylabel(ylabel2)
-    purple_patch = mpatches.Patch(color = 'purple', label = legenda2)
-    plt.legend(handles = [purple_patch])
-    plt.grid()
-
-    plt.tight_layout()
-    plt.show()
-
-
 def plotar_grafico_plotly(titulo='Title', x=None, y=None, xlabel='x', ylabel='y'):
     '''
     ============================================
@@ -219,6 +189,36 @@ def plotar_grafico_dash(titulo='Title', x=None, y=None, xlabel='x', ylabel='y'):
 
     return app.run_server()
 
+
+def plot_duplo(titulo1='Title', x1=None, y1=None, xlabel1='x', ylabel1='y', legenda1='legenda1',
+               titulo2='Title', x2=None, y2=None, xlabel2='x', ylabel2='y', legenda2='legenda2'):
+    
+    # Tamanho da area dos graficos
+    plt.figure(figsize=(7, 5))
+
+    # Area do primeiro grafico
+    plt.subplot(2, 1, 1)
+    plt.plot(x1, y1, color = 'royalblue')
+    plt.title(titulo1)
+    plt.xlabel(xlabel1)
+    plt.ylabel(ylabel1)
+    blue_patch = mpatches.Patch(color = 'royalblue', label = legenda1)
+    plt.legend(handles = [blue_patch])
+    plt.grid()
+
+    # Area do segundo grafico
+    plt.subplot(2, 1, 2)
+    plt.plot(x2, y2, color = 'purple')
+    plt.title(titulo2)
+    plt.xlabel(xlabel2)
+    plt.ylabel(ylabel2)
+    purple_patch = mpatches.Patch(color = 'purple', label = legenda2)
+    plt.legend(handles = [purple_patch])
+    plt.grid()
+
+    plt.tight_layout()
+    plt.show()
+    
 
 def plotar_trajetoria_intercepto(xB, yB, xR, yR, tempo_dist, intercepto):
     '''

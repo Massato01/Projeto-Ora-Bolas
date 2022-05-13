@@ -64,7 +64,7 @@ def inicializar_janela_coordenadas():
         ============================================
         '''
         # Variáveis globais definidas no inicio do código
-        global x_bola, y_bola, x_robo, menor_distX, y_robo, menor_distY, menor_distT, intercepto, velocidade_robo, aceleracao_robo, arr_t_aux
+        global x_bola, y_bola, x_robo, menor_distX, y_robo, menor_distY, menor_distT, intercepto, velocidade_robo, aceleracao_robo, lista_tempo
 
         
         # Verifica se as caixas de diálogo esão vazias
@@ -177,7 +177,7 @@ def inicializar_janela_coordenadas():
                 # VARIÁVEIS GLOBAIS
                 velocidade_robo = []
                 aceleracao_robo = []
-                arr_t_aux = []
+                lista_tempo = []
 
                 # Capturando a Velocidade e Aceleração do Robô a cada 20ms (escolha do Pajé) até o instante de interceptação
                 index = 0
@@ -185,7 +185,7 @@ def inicializar_janela_coordenadas():
 
                 while (bola_t_pos[index] != menor_distT):
                     velocidade_robo.append(dv)
-                    arr_t_aux.append(bola_t_pos[index])
+                    lista_tempo.append(bola_t_pos[index])
 
                     if bola_t_pos[index] <= s_instante_vel_max:
                         dv += 0.08
@@ -220,7 +220,7 @@ def inicializar_janela_coordenadas():
                                         menor_distX, menor_distY, menor_distT,
                                         velocidade_robo,
                                         aceleracao_robo,
-                                        arr_t_aux)
+                                        lista_tempo)
 
                 else:
                     # SE NÃO INTERCEPTAR:
@@ -237,7 +237,7 @@ def inicializar_janela_coordenadas():
                                     menor_distX, menor_distY, menor_distT,
                                     velocidade_robo,
                                     aceleracao_robo,
-                                    arr_t_aux)
+                                    lista_tempo)
 
 
     # ====----====----====----====----====----====----====----====
@@ -268,7 +268,7 @@ print(f'''
 {cl = }\n
 {lista_yRobo = }\n
 {lista_xRobo = }\n
-{arr_t_aux = }\n
+{lista_tempo = }\n
 {velocidade_robo = }\n
 {aceleracao_robo = }\n
 {vx_robo = }\n

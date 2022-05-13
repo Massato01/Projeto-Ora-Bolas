@@ -18,14 +18,21 @@ from   numpy.linalg      import lstsq
 
 # ==================================================
 # --------------- VARIÁVEIS GLOBAIS ----------------
-y_bola = x_bola = x_robo = y_robo = menor_distX = menor_distY = menor_distT = 0
-m = cl = 0 # Coeficientes Angular e Linear
+y_bola = 0
+x_bola = 0
+x_robo = 0
+y_robo = 0
+menor_distX = 0
+menor_distY = 0
+menor_distT = 0
+m = cl = 0
 
 velocidade_robo = []
 aceleracao_robo = []
 lista_xRobo = []
 lista_yRobo = []
-arr_t_aux = []
+
+lista_tempo = []
 vx_robo = []
 ax_robo = []
 vy_robo = []
@@ -72,7 +79,7 @@ def tempo_robo_bola(distancia, velocidade):
 
 def equacao_da_reta(pos_inicial_robo, pos_final_robo, x_robo, y_robo,
              menor_distX, menor_distY, menor_distT,
-             velocidade_robo, aceleracao_robo, arr_t_aux):
+             velocidade_robo, aceleracao_robo, lista_tempo):
     '''
     ==========================
     ENCONTRA A EQUAÇÃO DA RETA
@@ -87,7 +94,7 @@ def equacao_da_reta(pos_inicial_robo, pos_final_robo, x_robo, y_robo,
     menor_distT: tempo da distância entre o robô e a bola
     velocidade_robo: velocidade do robô
     aceleracao_robo: aceleracao do robô
-    arr_t_aux: ?
+    lista_tempo: lista com o tempo armazenado
 
     return -> equação da reta que o robô percorrerá para interceptar a bola
     '''
