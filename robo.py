@@ -291,6 +291,7 @@ def visualizar_dados():
     #                 INPUTS
     # ========================================
     instante_input = tk.Entry(master)
+    i = instante_input.get()
     
     # lista_xRobo / lista_yRobo
     input_xRobo = tk.Entry(master)
