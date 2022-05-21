@@ -238,6 +238,8 @@ def inicializar_janela_coordenadas():
                                     velocidade_robo,
                                     aceleracao_robo,
                                     lista_tempo)
+                            
+        visualizar_dados()
 
 
     # ====----====----====----====----====----====----====----====
@@ -253,8 +255,138 @@ def inicializar_janela_coordenadas():
     master.mainloop()
 
 
-inicializar_janela_coordenadas()
+def visualizar_dados():
+    master = tk.Tk()
+    master.geometry('600x600')
+    master.title('Visualização dos Dados')
+    master.configure(bg='#FAFBFF')
 
+    # ========================================
+    #                  LABELS
+    # ========================================
+    window_title = tk.Label(master, text="COORDENADAS INICIAIS DO ROBÔ")
+    label_instante = tk.Label(master, text="DIGITE O INSTANTE:")
+    
+    # lista_xRobo / lista_yRobo
+    label_xRobo = tk.Label(master, text='Posição X do Robô:')
+    label_yRobo = tk.Label(master, text='Posição Y do Robô:')
+
+    # bola_x_pos / bola_y_pos
+    label_xBola = tk.Label(master, text='Posição X da Bola:')
+    label_yBola = tk.Label(master, text='Posição Y da Bola:') 
+
+    # velocidade_robo / aceleracao_robo
+    label_vRobo = tk.Label(master, text='Velocidade do Robô:')
+    label_aRobo = tk.Label(master, text='Aceleração do Robô:')
+
+    # vx_robo / vy_robo
+    label_vxRobo = tk.Label(master, text='VX do Robô:')
+    label_vyRobo = tk.Label(master, text='VY do Robô:')
+
+    # ax_robo / ay_robo
+    label_axRobo = tk.Label(master, text='AX do Robô:')
+    label_ayRobo = tk.Label(master, text='AY do Robô:')
+    
+    # ========================================
+    #                 INPUTS
+    # ========================================
+    instante_input = tk.Entry(master)
+    
+    # lista_xRobo / lista_yRobo
+    input_xRobo = tk.Entry(master)
+    input_yRobo = tk.Entry(master)
+
+    # bola_x_pos / bola_y_pos
+    input_xBola = tk.Entry(master)
+    input_yBola = tk.Entry(master)
+
+    # velocidade_robo / aceleracao_robo
+    input_vRobo = tk.Entry(master)
+    input_aRobo = tk.Entry(master)
+
+    # vx_robo / vy_robo
+    input_vxRobo = tk.Entry(master)
+    input_vyRobo = tk.Entry(master)
+
+    # ax_robo / ay_robo
+    input_axRobo = tk.Entry(master)
+    input_ayRobo = tk.Entry(master)
+
+    # ========================================
+    #              LABEL PLACING
+    # ========================================
+    window_title.place(relx=0.5, rely=0.1, anchor='center')
+    label_instante.place(relx=0.37, rely=0.2, anchor='center')
+
+    # lista_xRobo / lista_yRobo
+    label_xRobo.place(relx=0.35, rely=0.45, anchor='center')
+    label_yRobo.place(relx=0.35, rely=0.5, anchor='center')
+
+    # bola_x_pos / bola_y_pos
+    label_xBola.place(relx=0.35, rely=0.55, anchor='center')
+    label_yBola.place(relx=0.35, rely=0.6, anchor='center')
+
+    # velocidade_robo / aceleracao_robo
+    label_vRobo.place(relx=0.35, rely=0.65, anchor='center')
+    label_aRobo.place(relx=0.35, rely=0.7, anchor='center')
+
+    # vx_robo / vy_robo
+    label_vxRobo.place(relx=0.35, rely=0.75, anchor='center')
+    label_vyRobo.place(relx=0.35, rely=0.8, anchor='center')
+
+    # ax_robo / ay_robo
+    label_axRobo.place(relx=0.35, rely=0.85, anchor='center')
+    label_ayRobo.place(relx=0.35, rely=0.9, anchor='center')
+
+
+    # ========================================
+    #              INPUT PLACING
+    # ========================================
+    instante_input.place(relx=0.6, rely=0.2, anchor='center')
+
+    # lista_xRobo / lista_yRobo
+    input_xRobo.place(relx=0.62, rely=0.45, anchor='center')
+    input_yRobo.place(relx=0.62, rely=0.5, anchor='center')
+
+    # bola_x_pos / bola_y_pos
+    input_xBola.place(relx=0.62, rely=0.55, anchor='center')
+    input_yBola.place(relx=0.62, rely=0.6, anchor='center')
+
+    # velocidade_robo / aceleracao_robo
+    input_vRobo.place(relx=0.62, rely=0.65, anchor='center')
+    input_aRobo.place(relx=0.62, rely=0.7, anchor='center')
+
+    # vx_robo / vy_robo
+    input_vxRobo.place(relx=0.62, rely=0.75, anchor='center')
+    input_vyRobo.place(relx=0.62, rely=0.8, anchor='center')
+
+    # ax_robo / ay_robo
+    input_axRobo.place(relx=0.62, rely=0.85, anchor='center')
+    input_ayRobo.place(relx=0.62, rely=0.9, anchor='center')
+
+
+    # ========================================
+    #                 CONFIG
+    # ========================================
+    instante_input.configure(bg='white', fg='#2d2e30', font=('Helvetica', 10, 'bold'))
+    window_title.configure(font=('Helvetica', 12, 'bold'), bg='#FAFBFF', fg='#2d2e30')
+    label_instante.configure(font=('Helvetica', 12, 'normal'), bg='#FAFBFF', fg='#2d2e30')
+
+    label_xRobo.configure(font=('Helvetica', 12, 'normal'), bg='#FAFBFF', fg='#2d2e30')
+    label_yRobo.configure(font=('Helvetica', 12, 'normal'), bg='#FAFBFF', fg='#2d2e30')
+    label_xBola.configure(font=('Helvetica', 12, 'normal'), bg='#FAFBFF', fg='#2d2e30')
+    label_yBola.configure(font=('Helvetica', 12, 'normal'), bg='#FAFBFF', fg='#2d2e30')
+    label_vRobo.configure(font=('Helvetica', 12, 'normal'), bg='#FAFBFF', fg='#2d2e30')
+    label_aRobo.configure(font=('Helvetica', 12, 'normal'), bg='#FAFBFF', fg='#2d2e30')
+    label_vxRobo.configure(font=('Helvetica', 12, 'normal'), bg='#FAFBFF', fg='#2d2e30')
+    label_vyRobo.configure(font=('Helvetica', 12, 'normal'), bg='#FAFBFF', fg='#2d2e30')
+    label_axRobo.configure(font=('Helvetica', 12, 'normal'), bg='#FAFBFF', fg='#2d2e30')
+    label_ayRobo.configure(font=('Helvetica', 12, 'normal'), bg='#FAFBFF', fg='#2d2e30')
+
+    master.mainloop()
+
+
+inicializar_janela_coordenadas()
 
 print(f'''
 {y_bola = }\n
@@ -277,3 +409,4 @@ print(f'''
 {ay_robo = }\n
 {intercepto = }\n
 ''')
+

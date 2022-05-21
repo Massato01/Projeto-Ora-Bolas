@@ -136,10 +136,10 @@ def equacao_da_reta(pos_inicial_robo, pos_final_robo, x_robo, y_robo,
     # ====----====----====----====----====----====----====----====
     
     # Variáveis globais
-    vx_robo = []
-    vy_robo = []
-    ax_robo = []
-    ay_robo = []
+    # vx_robo = []
+    # vy_robo = []
+    # ax_robo = []
+    # ay_robo = []
 
     # link documentação sympy: https://docs.sympy.org/latest/tutorial/calculus.html
     x = Symbol('x')

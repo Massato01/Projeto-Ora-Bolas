@@ -9,6 +9,8 @@ from sympy   import *
 # ====================================================
 #        ORIENTAÇÕES PARA INICIAR A ANIMAÇÃO
 # ====================================================
+scene = canvas(width = 800, height = 600)
+
 scene.caption = f'''
 <h1>ORA BOLAS!</h1>
 <h2><strong>Precione qualquer tecla para iniciar a animação!</strong></h2>
@@ -16,6 +18,7 @@ scene.caption = f'''
 [  X: {x_robo}  ]
 [  Y: {y_robo}  ]</h3>
 '''
+
 
 # BOLA DE REFERENCIA DOS PONTOS (0, 0)
 bola_referencia = sphere(pos = vector(0, 0, 0), radius = 0.1)
@@ -25,6 +28,11 @@ bola_referencia = sphere(pos = vector(0, 0, 0), radius = 0.1)
 # ====----====----====----====----====----====----====
 CAMPO = box(pos = vector(4.5, 3, 0), width = 0.05, length = 10, height = 7.2,
             texture = './assets/campo.jpg')
+
+# -------------------------------------------
+# CENTRALIZANDO A CAMERA COM RELAÇÃO AO CAMPO
+scene.camera.follow(CAMPO)
+# -------------------------------------------
 
 # Campo de teste [ IGNORAR ]
 # CAMPO = box(pos = vector(0, 1, 0), width = 60, length = 1, height = 90,
