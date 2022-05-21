@@ -21,8 +21,13 @@ scene.caption = f'''
 # ====----====----====----====----====----====----====
 #             CRIANDO O CAMPO DE FUTEBOL
 # ====----====----====----====----====----====----====
-CAMPO = box(pos = vector(4.25, 2.5, 0), width = 0.05, length = 9, height = 6,
+# CAMPO = box(pos = vector(4.25, 2.5, 0), width = 0.05, length = 9, height = 6,
+#             texture = './assets/campo.jpg')
+
+CAMPO = box(pos = vector(9, 6, 0), width = 0.05, length = 9, height = 6,
             texture = './assets/campo.jpg')
+
+bola_teste = sphere(pos = vector(0, 0, 0), radius = 0.1)
 
 # Campo de teste
 # CAMPO = box(pos = vector(0, 1, 0), width = 60, length = 1, height = 90,
@@ -33,12 +38,12 @@ CAMPO = box(pos = vector(4.25, 2.5, 0), width = 0.05, length = 9, height = 6,
 #                   CRIANDO OS GOLS
 # ====----====----====----====----====----====----====
 # Gol da direita
-# GOL_DIREITA = box(pos = vector(40, 4.5, 0), color = color.white,
-#           width = 10, lenght = 1, height = 7)
+GOL_DIREITA = box(pos = vector(8.25, 2.5, 0.26), color = color.white,
+          width = 0.5, length = 1.24, height = 0.1)
 
-# # Gol da esquerda
-# GOL_ESQUERDA = box(pos = vector(-40, 4.5, 0), color = color.white,
-#           width = 10, lenght = 1, height = 7)
+# Gol da esquerda
+GOL_ESQUERDA = box(pos = vector(0.25, 2.5, 0.26), color = color.white,
+          width = 0.5, length = 1.24, height = 0.1)
 
 
 # ====----====----====----====----====----====----====
@@ -72,6 +77,9 @@ RODA_ESQUERDA = cylinder(pos=vector(x_robo + 0.2, y_robo + 0.13, 0.142),
 ROBO_CORPO.rotate(angle = 3.14 / 2, axis = vector(0, 1, 0))
 RODA_DIREITA.rotate(angle = 3.14 / 2, axis = vector(0, 0, 1))
 RODA_ESQUERDA.rotate(angle = 3.14 / 2, axis = vector(0, 0, 1))
+
+GOL_DIREITA.rotate(angle = 3.14 / 2, axis = vector(0, 0, 1))
+GOL_ESQUERDA.rotate(angle = 3.14 / 2, axis = vector(0, 0, 1))
 
 
 while True:
