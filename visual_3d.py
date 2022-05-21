@@ -17,19 +17,16 @@ scene.caption = f'''
 [  Y: {y_robo}  ]</h3>
 '''
 
+# BOLA DE REFERENCIA DOS PONTOS (0, 0)
+bola_referencia = sphere(pos = vector(0, 0, 0), radius = 0.1)
 
 # ====----====----====----====----====----====----====
 #             CRIANDO O CAMPO DE FUTEBOL
 # ====----====----====----====----====----====----====
-# CAMPO = box(pos = vector(4.25, 2.5, 0), width = 0.05, length = 9, height = 6,
-#             texture = './assets/campo.jpg')
-
 CAMPO = box(pos = vector(4.5, 3, 0), width = 0.05, length = 10, height = 7.2,
             texture = './assets/campo.jpg')
 
-bola_teste = sphere(pos = vector(0, 0, 0), radius = 0.1)
-
-# Campo de teste
+# Campo de teste [ IGNORAR ]
 # CAMPO = box(pos = vector(0, 1, 0), width = 60, length = 1, height = 90,
 #             texture = './assets/campo.jpg')
 
@@ -57,29 +54,25 @@ BOLA = sphere(pos = vector(bola_x_pos[0], bola_y_pos[0], 0.07), color = color.re
 # ====----====----====----====----====----====----====
 #                    CRIANDO O ROBÔ
 # ====----====----====----====----====----====----====
-# X = 4.25   Y = 2.5
-# x_robo /= 10
-# y_robo /= 10
-
 ROBO_CORPO = cylinder(pos = vector(x_robo, y_robo, 0.3),
-                      color = color.yellow,
+                      color = color.black,
                       width = 0.25, length = 0.25, height = 0.25)
 
-RODA_DIREITA = cylinder(pos=vector(x_robo + 0.3, y_robo - 0.13, 0.142),
+RODA_DIREITA = cylinder(pos=vector(x_robo, y_robo - 0.13, 0.142),
                          color = color.white,
                          width = 0.225, length = 0.01, height = 0.225)
 
-RODA_ESQUERDA = cylinder(pos=vector(x_robo + 0.3, y_robo + 0.13, 0.142),
+RODA_ESQUERDA = cylinder(pos=vector(x_robo, y_robo + 0.13, 0.142),
                         color = color.white,
                         width = 0.225, length = 0.01, height = 0.225)
 
 # NECESSÁRIO ROTACIONAR OS OBJETOS 3D
+GOL_DIREITA.rotate(angle = 3.14 / 2, axis = vector(0, 0, 1))
+GOL_ESQUERDA.rotate(angle = 3.14 / 2, axis = vector(0, 0, 1))
+
 ROBO_CORPO.rotate(angle = 3.14 / 2, axis = vector(0, 1, 0))
 RODA_DIREITA.rotate(angle = 3.14 / 2, axis = vector(0, 0, 1))
 RODA_ESQUERDA.rotate(angle = 3.14 / 2, axis = vector(0, 0, 1))
-
-GOL_DIREITA.rotate(angle = 3.14 / 2, axis = vector(0, 0, 1))
-GOL_ESQUERDA.rotate(angle = 3.14 / 2, axis = vector(0, 0, 1))
 
 
 while True:
