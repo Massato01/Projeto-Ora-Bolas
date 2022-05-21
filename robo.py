@@ -319,30 +319,30 @@ def visualizar_dados():
     label_instante.place(relx=0.37, rely=0.2, anchor='center')
 
     # lista_xRobo / lista_yRobo
-    label_xRobo.place(relx=0.35, rely=0.45, anchor='center')
-    label_yRobo.place(relx=0.35, rely=0.5, anchor='center')
+    label_xRobo.place(relx=0.36, rely=0.45, anchor='center')
+    label_yRobo.place(relx=0.36, rely=0.5, anchor='center')
 
     # bola_x_pos / bola_y_pos
-    label_xBola.place(relx=0.35, rely=0.55, anchor='center')
-    label_yBola.place(relx=0.35, rely=0.6, anchor='center')
+    label_xBola.place(relx=0.36, rely=0.55, anchor='center')
+    label_yBola.place(relx=0.36, rely=0.6, anchor='center')
 
     # velocidade_robo / aceleracao_robo
     label_vRobo.place(relx=0.35, rely=0.65, anchor='center')
     label_aRobo.place(relx=0.35, rely=0.7, anchor='center')
 
     # vx_robo / vy_robo
-    label_vxRobo.place(relx=0.35, rely=0.75, anchor='center')
-    label_vyRobo.place(relx=0.35, rely=0.8, anchor='center')
+    label_vxRobo.place(relx=0.40, rely=0.75, anchor='center')
+    label_vyRobo.place(relx=0.40, rely=0.8, anchor='center')
 
     # ax_robo / ay_robo
-    label_axRobo.place(relx=0.35, rely=0.85, anchor='center')
-    label_ayRobo.place(relx=0.35, rely=0.9, anchor='center')
+    label_axRobo.place(relx=0.40, rely=0.85, anchor='center')
+    label_ayRobo.place(relx=0.40, rely=0.9, anchor='center')
 
 
     # ========================================
     #              INPUT PLACING
     # ========================================
-    instante_input.place(relx=0.6, rely=0.2, anchor='center')
+    instante_input.place(relx=0.63, rely=0.2, anchor='center')
 
     # lista_xRobo / lista_yRobo
     input_xRobo.place(relx=0.62, rely=0.45, anchor='center')
