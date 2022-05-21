@@ -10,16 +10,6 @@ from   visual_3d   import *
 from   PIL         import ImageTk, Image
 # ==================================================
 
-# =====================================
-# ---- Classe da Janela Princiapal ----
-class JanelaPrincipal:
-
-    def __init__(self, janela = None):
-        janela.geometry('600x500')
-        janela.title('Projeto Ora Bolas')
-        janela.configure(background = '#d9d9d9')
-# =====================================
-
 
 # =====================================
 # ------- Inicializa Interface --------
@@ -31,7 +21,7 @@ def inicializaInterface():
     root = tk.Tk()
     top = JanelaPrincipal (root)
     root.resizable(0, 0)
-    root.tk.call('wm', 'iconphoto', root._w, tk.PhotoImage(file='assets/root.png'))
+    root.tk.call('wm', 'iconphoto', root._w)
     root.mainloop()
 
 
