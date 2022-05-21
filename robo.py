@@ -253,7 +253,7 @@ def inicializar_janela_coordenadas():
     master.mainloop()
 
 
-# inicializar_janela_coordenadas()
+inicializar_janela_coordenadas()
 
 
 print(f'''

@@ -24,7 +24,7 @@ scene.caption = f'''
 # CAMPO = box(pos = vector(4.25, 2.5, 0), width = 0.05, length = 9, height = 6,
 #             texture = './assets/campo.jpg')
 
-CAMPO = box(pos = vector(9, 6, 0), width = 0.05, length = 9, height = 6,
+CAMPO = box(pos = vector(4.5, 3, 0), width = 0.05, length = 10, height = 7.2,
             texture = './assets/campo.jpg')
 
 bola_teste = sphere(pos = vector(0, 0, 0), radius = 0.1)
@@ -61,15 +61,15 @@ BOLA = sphere(pos = vector(bola_x_pos[0], bola_y_pos[0], 0.07), color = color.re
 # x_robo /= 10
 # y_robo /= 10
 
-ROBO_CORPO = cylinder(pos = vector(x_robo + 0.2, y_robo, 0.3),
+ROBO_CORPO = cylinder(pos = vector(x_robo, y_robo, 0.3),
                       color = color.yellow,
                       width = 0.25, length = 0.25, height = 0.25)
 
-RODA_DIREITA = cylinder(pos=vector(x_robo + 0.2, y_robo - 0.13, 0.142),
+RODA_DIREITA = cylinder(pos=vector(x_robo + 0.3, y_robo - 0.13, 0.142),
                          color = color.white,
                          width = 0.225, length = 0.01, height = 0.225)
 
-RODA_ESQUERDA = cylinder(pos=vector(x_robo + 0.2, y_robo + 0.13, 0.142),
+RODA_ESQUERDA = cylinder(pos=vector(x_robo + 0.3, y_robo + 0.13, 0.142),
                         color = color.white,
                         width = 0.225, length = 0.01, height = 0.225)
 
