@@ -1,7 +1,7 @@
 # ==================================================
 # ------------------ BIBLIOTECAS -------------------
 import tkinter  as tk
-from   tkinter  import messagebox
+from   tkinter  import ANCHOR, Button, messagebox
 from   sympy    import *
 
 # Calculos da distancia, tempo e equacao da reta
@@ -291,7 +291,7 @@ def visualizar_dados():
     #                 INPUTS
     # ========================================
     instante_input = tk.Entry(master)
-    i = instante_input.get()
+    i = int(instante_input.get())
     
     # lista_xRobo / lista_yRobo
     input_xRobo = tk.Entry(master)
@@ -383,6 +383,33 @@ def visualizar_dados():
     label_vyRobo.configure(font=('Helvetica', 12, 'normal'), bg='#FAFBFF', fg='#2d2e30')
     label_axRobo.configure(font=('Helvetica', 12, 'normal'), bg='#FAFBFF', fg='#2d2e30')
     label_ayRobo.configure(font=('Helvetica', 12, 'normal'), bg='#FAFBFF', fg='#2d2e30')
+    
+    def visualizar():
+        # lista_xRobo / lista_yRobo
+        input_xRobo.insert(0, lista_xRobo[i])
+        input_yRobo.insert(0, lista_yRobo[i])
+
+        # bola_x_pos / bola_y_pos
+        input_xBola.insert(0, bola_x_pos[i])
+        input_yBola.insert(0, bola_y_pos[i])
+
+        # velocidade_robo / aceleracao_robo
+        input_vRobo.insert(0, velocidade_robo[i])
+        input_aRobo.insert(0, aceleracao_robo[i])
+
+        # vx_robo / vy_robo
+        input_vxRobo.insert(0, vx_robo[i])
+        input_vyRobo.insert(0, vy_robo[i])
+
+        # ax_robo / ay_robo
+        input_axRobo.insert(0, ax_robo[i])
+        input_ayRobo.insert(0, ay_robo[i])
+
+    # ========================================
+    #                  BOTÃO
+    # ========================================
+    botao = Button(master, text='Enter', font=('Helvetica', 12), command=visualizar)
+    botao.place(relx=0.70, rely=0.2, anchor='center')
 
     master.mainloop()
 
