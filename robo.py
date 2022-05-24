@@ -99,9 +99,10 @@ def inicializar_janela_coordenadas():
                 # ====----====----====----====----====----====
                 #    [ VERIFICANDO SE HOUVE INTERCEPTAÇÃO ]
                 # ====----====----====----====----====----====
-
+                raio_robo = 0.021
+                raio_bola = 0.09
                 # RAIO DE INTERCEPTAÇÃO = ? (para exemplo usarei 0.12)
-                raio = 0.12
+                raio = raio_robo + raio_bola
 
                 # [ ! VELOCIDADE DO ROBÔ ! --> INTEGRAL DA ACELERAÇÃO (4m/s²) ]
                 # Declara as variáveis de posição e tempo como simbólicas
@@ -183,16 +184,17 @@ def inicializar_janela_coordenadas():
                 index = 0
                 dv = 0
 
-                while (bola_t_pos[index] != menor_distT):
-                    velocidade_robo.append(dv)
+                # [ Enquanto a bola no instante t for menor que o instante de interceptação ]
+                while bola_t_pos[index] != menor_distT:
+                    velocidade_robo.append(dv) # aumenta de 0.02 em 0.02
                     lista_tempo.append(bola_t_pos[index])
 
                     if bola_t_pos[index] <= s_instante_vel_max:
-                        dv += 0.08
-                        aceleracao_robo.append(4)
+                        dv += 0.02
+                        aceleracao_robo.append(4) # Para os graficos
                     else:
                         dv += 0
-                        aceleracao_robo.append(0)
+                        aceleracao_robo.append(0) # Para os graficos
                     index += 1
 
 
