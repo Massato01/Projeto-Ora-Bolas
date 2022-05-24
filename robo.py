@@ -148,7 +148,7 @@ def inicializar_janela_coordenadas():
                         y_bola.append(bola_x_pos[i])
 
                         # armazena a mínima distância possível e o tempo levado para o robô realizá-la
-                        if (distancia_total < distancia_maxima):
+                        if distancia_total < distancia_maxima:
                             distancia_maxima = distancia_total
                             menor_distX = bola_x_pos[i]
                             menor_distY = bola_y_pos[i]
