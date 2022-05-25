@@ -145,7 +145,7 @@ def inicializar_janela_coordenadas():
 
                         # Armazena as coordenadas da bola enquanto ela estiver em campo
                         x_bola.append(bola_x_pos[i])
-                        y_bola.append(bola_x_pos[i])
+                        y_bola.append(bola_y_pos[i])
 
                         # armazena a mínima distância possível e o tempo levado para o robô realizá-la
                         if distancia_total < distancia_maxima:
