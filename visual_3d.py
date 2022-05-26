@@ -61,9 +61,11 @@ GOL_ESQUERDA = box(pos = vector(0.25, 2.5, 0.26), color = color.white,
 # ====----====----====----====----====----====----====
 #                    CRIANDO A BOLA
 # ====----====----====----====----====----====----====
-BOLA = sphere(pos = vector(bola_x_pos[0], bola_y_pos[0], 0.07), color = color.red,
+# raio da bola = 0.05
+BOLA = sphere(pos = vector(bola_x_pos[0], bola_y_pos[0], 0.07), color = color.white,
               radius = 0.05,
-              make_trail = True, trail_color = color.white, interval = 1)
+              make_trail = True, trail_color = color.white, interval = 1,
+              texture = './assets/dain.jpg')
 
 
 # ====----====----====----====----====----====----====
