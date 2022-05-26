@@ -56,9 +56,9 @@ Raio: 0.21m''', font=('Helvetica', 12, 'bold'), bg = '#FAFBFF', relief='ridge')
     # [ SE INTERCEPTAR ]
     if intercepto == True:
         intercepto_true = tk.Label(master, text = f'''O ROBÔ CONSEGUIU INTERCEPTAR A BOLA COM SUCESSO!\n\nInformações da interceptação:
-Ponto X da interceptação: menor_distX
-Ponto Y da interceptação: menor_distY
-Instante de interceptação: menor_distT''', font = ('Helvetica', 12, 'bold'))
+Ponto X da interceptação: {menor_distX:.1f}
+Ponto Y da interceptação: {menor_distY:.1f}
+Instante de interceptação: {menor_distT:.1f}''', font = ('Helvetica', 12, 'bold'))
 
         intercepto_true.place(relx = 0.5, rely = 0.55, anchor = 'center')
 
@@ -75,6 +75,16 @@ Instante de interceptação: menor_distT''', font = ('Helvetica', 12, 'bold'))
     # -------------------------------
     #            GRÁFICOS
     # -------------------------------
+    escolha = None
+    def callback(eventObject):
+        global escolha
+        try:
+            escolha = graficos_escolha.get().split()[0]
+            btn_graficos['state'] = 'normal'
+        except:
+            btn_graficos['state'] = 'disabled'
+
+
     graficos_label = tk.Label(master, text = 'VISUALIZAR GRÁFICOS:',
                               font = ('Helvetica', 12, 'normal'))
 
@@ -95,33 +105,33 @@ Instante de interceptação: menor_distT''', font = ('Helvetica', 12, 'bold'))
     
     graficos_escolha.configure(font = ('Helvetica', 11, 'normal'),
                                background = '#4A4747', foreground = 'black',
-                               values=('=============== BOLA ===============',
+                               values=(# '=============== BOLA ===============',
                                       '[1] Trajetória da Bola',
                                       '[2] Velocidade da Bola',
                                       '[3] Aceleração da Bola',
-                                      '',
-                                      '================ ROBÔ ===============',
+                                    #   '',
+                                    #   '================ ROBÔ ===============',
                                       '[4] Trajetória do Robô',
                                       '[5] Velocidade do Robô',
                                       '[6] Aceleração do Robô',
                                       '[7] VX e VY do Robô',
                                       '[8] AX e AY do Robô',
-                                      '',
-                                      '============ ROBÔ E BOLA ============',
+                                    #   '',
+                                    #   '============ ROBÔ E BOLA ============',
                                       '[9] Robô e Bola em um plano',
                                       '[10] Distância entre o Robô e a Bola em T'
                                ))
+    # ATUALIZANDO ESCOLHA DO USUÁRIO
+    graficos_escolha.current(0)
+    graficos_escolha.bind("<<ComboboxSelected>>", callback)
     graficos_escolha.set('Escolha uma opção')
-
-    # ESCOLHA DO USUÁRIO
-    escolha = int(graficos_escolha.get().split()[1])
     
     # ----------------------------------------------
     # [ PLOTANDO OS GRÁFICOS DE ACORDO COM A OPÇÃO ]
     # ----------------------------------------------
     def plotar_grafico_escolhido():
         # Trajetória da Bola
-        if escolha == 1:
+        if escolha == '[1]':
             # X e Y da Bola em fução do tempo
             plot_duplo('X da bola em função do Tempo', bola_t_pos, bola_x_pos,
                        't/s', 'x/m', 'x(t)',
@@ -130,15 +140,15 @@ Instante de interceptação: menor_distT''', font = ('Helvetica', 12, 'bold'))
                        't/s', 'y/m', 'y(t)')
 
         # Velocidade da Bola
-        elif escolha == 2:
+        elif escolha == '[2]':
             pass
         
         # Aceleração da Bola
-        elif escolha == 3:
+        elif escolha == '[3]':
             pass
 
         # Trajetória do Robô
-        elif escolha == 4:
+        elif escolha == '[4]':
             # X e Y do Robô em função do tempo
             plot_duplo('X do robô em função do Tempo',
                        intercepto_tRobo, intercepto_xRobo,
@@ -149,17 +159,17 @@ Instante de interceptação: menor_distT''', font = ('Helvetica', 12, 'bold'))
                        't/s', 'x/m', 'x(t)')
         
         # Velocidade do Robô em função do Tempo
-        elif escolha == 5:
+        elif escolha == '[5]':
             plotar_grafico('Velocidade do robô em função do Tempo',
                            lista_tempo, velocidade_robo, 's', 'm/s')
 
         # Aceleração do Robô em função do Tempo
-        elif escolha == 6:
+        elif escolha == '[6]':
             plotar_grafico('Aceleração do robô em função do Tempo',
                            lista_tempo, aceleracao_robo, 's', 'm/s²')
 
         # Velocidade do Robô VX/VY
-        elif escolha == 7:
+        elif escolha == '[7]':
             # VX e VY do Robô
             plot_duplo('VX do Robô', lista_tempo, vx_robo,
                        't(s)', 'Vx(m/s)', 'Vx(t)',
@@ -168,7 +178,7 @@ Instante de interceptação: menor_distT''', font = ('Helvetica', 12, 'bold'))
                        't(s)', 'Vy(m/s)', 'Vy(t)')
 
         # Aceleração do Robô AX/AY
-        elif escolha == 8:
+        elif escolha == '[8]':
             # AX e AY do Robô
             plot_duplo('AX do Robô', lista_tempo, ax_robo,
                        't(s)', 'Ax(m/s²)', 'Ax(t)',
@@ -177,7 +187,7 @@ Instante de interceptação: menor_distT''', font = ('Helvetica', 12, 'bold'))
                        't(s)', 'Ay(m/s²)', 'Ay(t)')
         
         # Robô e Bola em um plano
-        elif escolha == 9:
+        elif escolha == '[9]':
             # SE INTERCEPTAR plota as coordenadas da bola até a interceptação
             if intercepto == True:
                 plotar_trajetoria_intercepto(x_bola, y_bola,
@@ -192,17 +202,16 @@ Instante de interceptação: menor_distT''', font = ('Helvetica', 12, 'bold'))
                                              menor_distT, intercepto)
 
         # Distância ente o Robô e a Bola
-        elif escolha == 10:
+        elif escolha == '[10]':
             plotar_grafico('Distância entre o robô e a bola em função do tempo',
                            intercepto_tRobo, distancia_robo_bola,
                            's', 'm')
     # -----------------------------
     # BOTÃO PARA PLOTAR OS GRÁFICOS
     # -----------------------------
-    btn_graficos = tk.Button(master, state = 'disabled',
-                             command = plotar_grafico_escolhido)
+    btn_graficos = tk.Button(master, text='Visualizar', command = plotar_grafico_escolhido)
     btn_graficos.place(relx = 0.5, rely = 0.9, anchor = 'center')
-    btn_graficos.configure(height=20, width=20, text='Visualizar')
+    # btn_graficos.configure(text='Visualizar')
 
     master.mainloop()
 
