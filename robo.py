@@ -131,7 +131,7 @@ def inicializar_janela_coordenadas():
 
 
                 # Distância máxima do robô em campo
-                distancia_maxima = 10.816653826391969
+                distancia_maxima = 10
 
                 for i in range(len(bola_x_pos)):
                     # ========================================================

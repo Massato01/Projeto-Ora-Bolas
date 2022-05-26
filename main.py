@@ -1,12 +1,13 @@
 # ==================================================
 # ------------------ BIBLIOTECAS -------------------
+from ctypes import alignment
 import sys
 import os.path
 import tkinter     as tk
 import tkinter.ttk as ttk
 from PIL import ImageTk, Image
-from   graficos    import *
-from   visual_3d   import *
+# from   graficos    import *
+# from   visual_3d   import *
 # ==================================================
 
 
@@ -49,29 +50,56 @@ def main():
     # robo_central.pack()
 
 
-    def visualizar_especificacoes():
+    # def visualizar_especificacoes():
 
-        mensagem = '''Informaçoes do robô:
-        Tipo: Small Size
-        Velocidade máxima: 2.3m/s
-        Aceleração: 4m/s²
-        Raio: 0.021cm'''
+    #     mensagem = '''Informaçoes do robô:
+    #     Tipo: Small Size
+    #     Velocidade máxima: 2.3m/s
+    #     Aceleração: 4m/s²
+    #     Raio: 0.021cm'''
 
-        if intercepto == True:
-            mensagem += f'''\n\nInformações da interceptação:\nO robô interceptou a bola nos pontos ({menor_distX}, {menor_distY}) no instante {menor_distT}'''
+    #     if intercepto == True:
+    #         mensagem += f'''\n\nInformações da interceptação:\nO robô interceptou a bola nos pontos ({menor_distX}, {menor_distY}) no instante {menor_distT}'''
         
-        else:
-            mensagem += f'''Informações da interceptação
-            O robô não conseguiu interceptar a bola'''
+    #     else:
+    #         mensagem += f'''Informações da interceptação
+    #         O robô não conseguiu interceptar a bola'''
 
-        print(messagebox.showinfo(f"Dados obtidos:", mensagem))
+    #     print(messagebox.showinfo(f"Dados obtidos:", mensagem))
+    
+    # ======================
+    # ESPECIFICAÇÕES DO ROBÔ
+    # ======================
+    especificacoes = tk.Label(master, text = '''Informaçoes do robô:
+Tipo: Small Size
+Velocidade máxima: 2.3m/s
+Aceleração: 4m/s²
+Raio: 0.21m''', font=('Helvetica', 12, 'bold'), bg = '#FAFBFF', relief='ridge')
+    especificacoes.pack(fill = 'both')
 
-    # ------------------------
-    # BOTÃO DAS ESPECIFICAÇÕES
-    # ------------------------
-    btn_espec = tk.Button(master, command=visualizar_especificacoes)
-    btn_espec.place(relx=0.5, rely=0.2, height=44, width=260, anchor = 'center')
-    btn_espec.configure(font = ('Helvetica', 13, 'normal'), background="#4A4747", fg = '#7eddd3', text='''Visualizar Especificações''', width=157)
+    especificacoes.place(relx = 0.5, rely = 0.3, anchor = 'center')
+    
+    intercepto = True
+    
+    # [ MENSAGEM DE INTERCEPTACAO ]
+    if intercepto == True:
+        intercepto_true = tk.Label(master, text = f'''O ROBÔ CONSEGUIU INTERCEPTAR A BOLA COM SUCESSO!\n\nInformações da interceptação:
+Ponto X da interceptação: menor_distX
+Ponto Y da interceptação: menor_distY
+Instante de interceptação: menor_distT''', font = ('Helvetica', 12, 'bold'))
+
+        intercepto_true.place(relx = 0.5, rely = 0.6, anchor = 'center')
+
+        intercepto_true.configure(bg="#FAFBFF", fg = 'black')
+        
+    else:
+        intercepto_false = tk.Label(master, text = f'''O robô não conseguiu interceptar a bola...''', font = ('Helvetica', 12, 'bold'))
+
+        intercepto_false.place(relx = 0.5, rely = 0.5, anchor = 'center')
+
+        intercepto_false.configure(bg="#FAFBFF", fg = 'black')
+    
+
 
 
     master.mainloop()
