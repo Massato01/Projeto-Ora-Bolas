@@ -75,14 +75,6 @@ Instante de interceptação: {menor_distT:.1f}''', font = ('Helvetica', 12, 'bol
     #            GRÁFICOS
     # -------------------------------
     escolha = None
-    # def callback(eventObject):
-    #     global escolha
-    #     try:
-    #         escolha = int(graficos_escolha.get().split()[0])
-    #         btn_graficos['state'] = 'normal'
-    #     except:
-    #         btn_graficos['state'] = 'disabled'
-
 
     graficos_label = tk.Label(master, text = 'VISUALIZAR GRÁFICOS:',
                               font = ('Helvetica', 12, 'normal'))
@@ -95,7 +87,6 @@ Instante de interceptação: {menor_distT:.1f}''', font = ('Helvetica', 12, 'bol
     # ==============================================
     # [ PLOTANDO OS GRÁFICOS DE ACORDO COM A OPÇÃO ]
     # ==============================================
-    print(escolha)
     def plotar_grafico_escolhido():
         # ------------------------------------------
         #          TRAJETÓRIA DA BOLA
