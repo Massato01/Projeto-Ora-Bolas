@@ -92,9 +92,10 @@ def inicializar_janela_coordenadas():
             # [ COORDENADAS ENVIADAS ]
             else:
                 messagebox.showinfo('',
-                                    'Coordenadas enviadas com SUCESSO! \n\n'
-                                    f'X = {x_robo}\nY = {y_robo}\n\n'
-                                    f'({x_robo}, {y_robo})')
+                                    'Coordenadas enviadas! \n\n'
+                                    'Posição inicial do Robô:\n'
+                                    f'     X = {x_robo}         Y = {y_robo}\n\n'
+                                    f'             ({x_robo}, {y_robo})')
 
 
                 # ====----====----====----====----====----====
@@ -261,7 +262,7 @@ def visualizar_dados():
     #                  LABELS
     # ========================================
     window_title = tk.Label(master, text="VISUALIZAÇÃO DOS DADOS")
-    label_instante = tk.Label(master, text="DIGITE O INSTANTE:")
+    label_instante = tk.Label(master, text="DIGITE UM INSTANTE:")
     
     # lista_xRobo / lista_yRobo
     label_xRobo = tk.Label(master, text='Posição X do Robô:')

@@ -71,19 +71,19 @@ BOLA = sphere(pos = vector(bola_x_pos[0], bola_y_pos[0], 0.07), color = color.wh
 # ====----====----====----====----====----====----====
 #                    CRIANDO O ROBÔ
 # ====----====----====----====----====----====----====
-ROBO_CORPO = cylinder(pos = vector(x_robo, y_robo, 0.3),
+ROBO_CORPO = cylinder(pos = vector(x_robo, y_robo, 0.35),
                       color = color.black,
                       width = 0.35, length = 0.35, height = 0.35,
                       make_trail = True, trail_color = color.cyan,
                       interval = 1)
 
-RODA_DIREITA = cylinder(pos=vector(x_robo, y_robo - 0.13, 0.142),
+RODA_DIREITA = cylinder(pos=vector(x_robo, y_robo - 0.18, 0.142),
                          color = color.white,
-                         width = 0.225, length = 0.01, height = 0.225)
+                         width = 0.225, length = 0.05, height = 0.225)
 
 RODA_ESQUERDA = cylinder(pos=vector(x_robo, y_robo + 0.13, 0.142),
                         color = color.white,
-                        width = 0.225, length = 0.01, height = 0.225)
+                        width = 0.225, length = 0.05, height = 0.225)
 
 
 # NECESSÁRIO ROTACIONAR OS OBJETOS 3D
@@ -133,8 +133,7 @@ while True:
 
                 # Movimentação das rodas do robô
                 RODA_DIREITA.pos.x = lista_xRobo[cont_robo]
-                RODA_DIREITA.pos.y = lista_yRobo[cont_robo] + ROBO_CORPO.height-0.12
-
+                RODA_DIREITA.pos.y = lista_yRobo[cont_robo] + ROBO_CORPO.height-0.17
                 RODA_ESQUERDA.pos.x = lista_xRobo[cont_robo]
                 RODA_ESQUERDA.pos.y = lista_yRobo[cont_robo] - ROBO_CORPO.height+0.12
 
