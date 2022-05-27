@@ -128,7 +128,7 @@ def equacao_da_reta(pos_inicial_robo, pos_final_robo, x_robo, y_robo,
     print(f'Equação da Reta = {m}x + {cl}')
 
 
-    # variável temporária para armazenar a posição inicial do robô em x
+    # [ Variável temporária para não interfirir na variável da função ] 
     pos_inicial_xRobo_temp = x_robo
 
     # ====----====----====----====----====----====----====----====
@@ -169,9 +169,9 @@ def equacao_da_reta(pos_inicial_robo, pos_final_robo, x_robo, y_robo,
         # vy = v0 * sen(teta)          ay = a0 * sen(teta)
         vy_robo.append(velocidade_robo[index] * sin(teta))
         ay_robo.append(aceleracao_robo[index] * sin(teta))
-        print(teta)
+        # print(teta)
 
-    # Novamente armazenando posição inicial do robô X em uma variável temporária
+    # [ Novamente armazenando posição inicial do robô X em uma variável temporária ]
     pos_inicial_xRobo_temp = x_robo
     
     
