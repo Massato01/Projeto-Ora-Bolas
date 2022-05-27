@@ -50,11 +50,11 @@ scene.camera.follow(CAMPO)
 #                   CRIANDO OS GOLS
 # ====----====----====----====----====----====----====
 # Gol da direita
-GOL_DIREITA = box(pos = vector(8.25, 2.5, 0.26), color = color.white,
+GOL_DIREITA = box(pos = vector(8.95, 3, 0.26), color = color.white,
           width = 0.5, length = 1.24, height = 0.1)
 
 # Gol da esquerda
-GOL_ESQUERDA = box(pos = vector(0.25, 2.5, 0.26), color = color.white,
+GOL_ESQUERDA = box(pos = vector(0.05, 3, 0.26), color = color.white,
           width = 0.5, length = 1.24, height = 0.1)
 
 
@@ -84,6 +84,7 @@ RODA_DIREITA = cylinder(pos=vector(x_robo, y_robo - 0.13, 0.142),
 RODA_ESQUERDA = cylinder(pos=vector(x_robo, y_robo + 0.13, 0.142),
                         color = color.white,
                         width = 0.225, length = 0.01, height = 0.225)
+
 
 # NECESSÁRIO ROTACIONAR OS OBJETOS 3D
 GOL_DIREITA.rotate(angle = 3.14 / 2, axis = vector(0, 0, 1))
@@ -157,7 +158,7 @@ while True:
                     ))
 
                     scene.append_to_caption(
-                        f'''<h2>INTERCEPTOU!\nPonto X da interceptação: {menor_distX:.1f}\nPonto Y da interceptação: {menor_distY:.1f}\nPonto T da interceptação: {menor_distT:.1f}</h2>'''
+                        f'''<h2 style="border:2px solid black">INTERCEPTOU!\nPonto X da interceptação: {menor_distX:.1f}\nPonto Y da interceptação: {menor_distY:.1f}\nPonto T da interceptação: {menor_distT:.1f}</h2>'''
                     )
 
                 break

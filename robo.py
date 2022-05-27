@@ -182,18 +182,18 @@ def inicializar_janela_coordenadas():
 
                 # Capturando a Velocidade e Aceleração do Robô a cada 20ms (escolha do Pajé) até o instante de interceptação
                 index = 0
-                dv = 0
+                velo = 0
 
                 # [ Enquanto a bola no instante t for menor que o instante de interceptação ]
                 while bola_t_pos[index] != menor_distT:
-                    velocidade_robo.append(dv) # aumenta de 0.02 em 0.02
+                    velocidade_robo.append(velo) # aumenta de 0.02 em 0.02
                     lista_tempo.append(bola_t_pos[index])
 
                     if bola_t_pos[index] <= s_instante_vel_max:
-                        dv += 0.02
+                        velo += 0.02
                         aceleracao_robo.append(4) # Para os graficos
                     else:
-                        dv += 0
+                        velo += 0
                         aceleracao_robo.append(0) # Para os graficos
                     index += 1
 
@@ -201,13 +201,9 @@ def inicializar_janela_coordenadas():
 
                 # Verificando se o tempo que o robô percorre a trajetória é menor ou igual ao tempo da bola no instante encontrado
                 if tempo_const_robo <= menor_distT:
-
                     global intercepto
-                    intercepto = True
 
-                    # [ INFORMANDO QUE O ROBÔ INTERCEPTOU A BOLA ]
-                    messagebox.showinfo('INTERCEPTOU!',
-                                        'O robô interceptou a bola com SUCESSO!')
+                    intercepto = True
 
                     # [ FECHA A CAIXA DE DIÁLOGO ]
                     master.destroy()
@@ -225,9 +221,6 @@ def inicializar_janela_coordenadas():
                                         lista_tempo)
 
                 else:
-                    # SE NÃO INTERCEPTAR:
-                    messagebox.showinfo('NÃO INTERCEPTOU...',
-                                        'O Robô FALHOU ao tentar interceptar a bola...')
                     # [ FECHA A CAIXA DE DIÁLOGO ]
                     master.destroy()
                     

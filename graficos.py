@@ -189,6 +189,17 @@ def plotar_trajetoria_intercepto(xB, yB, xR, yR, tempo_dist, intercepto):
 # Declarando as variáveis simbólicas para derivada
 t, s = symbols('t s')
 def plotar_vxvy_axay(titulo, derivadaX, derivadaY, componente_va):
+    '''
+    ==================================
+           PLOTA VX/VY E AX/AY
+    ==================================
+    titulo: titulo do grafico
+    derivadaX: derivada da equação de X
+    derivadaY: derivada da equação de Y
+    componente_va: componente da velodidade(V) ou aceleração(A)
+
+    return -> um plot duplot com VX/VY e AX/AY
+    '''
     componente_x = []
     componente_y = []
 
@@ -215,6 +226,8 @@ def plotar_vxvy_axay(titulo, derivadaX, derivadaY, componente_va):
 
 # Criando listas com as posicoes da bola
 criar_listas_posicao()
+print(bola_x_pos[0])
+print(bola_x_pos[::-1][0] - bola_x_pos[0] / bola_t_pos[::-1][0] - bola_t_pos[1])
 
 
 # ==================================================
