@@ -154,7 +154,6 @@ def equacao_da_reta(pos_inicial_robo, pos_final_robo, x_robo, y_robo,
     #       o "m". ]
     #     
     #     teta = arco tan(derivada(equação da reta))
-    #        
 
     # Derivada da posição da bola
     dx_pos_bola = diff(m * x + cl, x)
