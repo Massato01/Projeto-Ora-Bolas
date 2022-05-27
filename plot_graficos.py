@@ -7,40 +7,32 @@ import plotly.express     as px
 from   math               import *
 from   sympy              import *
 from   sympy              import symbols
+from   logica_robo        import *
 # ==================================================
-
-
-# ==================================================
-# --------------- VARIÁVEIS GLOBAIS ----------------
-bola_x_pos = None
-bola_y_pos = None
-bola_t_pos = None
-# ==================================================
-
 
 # ==================================================
 # -------------------- FUNÇÕES ---------------------
-def criar_listas_posicao():
-    '''
-    ==================================
-    CRIA LISTAS PARA AS COORDENADAS DA
-           TRAJETÓRIA DA BOLA
-    ==================================
-    '''
+# def criar_listas_posicao():
+#     '''
+#     ==================================
+#     CRIA LISTAS PARA AS COORDENADAS DA
+#            TRAJETÓRIA DA BOLA
+#     ==================================
+#     '''
 
-    global bola_x_pos, bola_y_pos, bola_t_pos
+#     global bola_x_pos, bola_y_pos, bola_t_pos
 
-    trajetoria = pd.read_csv('./data/trajetoria-bola.csv')
+#     trajetoria = pd.read_csv('./data/trajetoria-bola.csv')
 
-    trajetoria = trajetoria.replace(',', '.', regex = True).astype(float)
+#     trajetoria = trajetoria.replace(',', '.', regex = True).astype(float)
 
-    bola_x_pos = trajetoria.iloc[:, 1].values
-    bola_y_pos = trajetoria.iloc[:, 2].values
-    bola_t_pos = trajetoria.iloc[:, 0].values
+#     bola_x_pos = trajetoria.iloc[:, 1].values
+#     bola_y_pos = trajetoria.iloc[:, 2].values
+#     bola_t_pos = trajetoria.iloc[:, 0].values
 
-    # print(bola_x_pos)
-    # print(bola_y_pos)
-    # print(bola_t_pos)
+#     # print(bola_x_pos)
+#     # print(bola_y_pos)
+#     # print(bola_t_pos)
 
 
 def plotar_grafico(titulo='Title', x=None, y=None, xlabel='x', ylabel='y'):
@@ -185,6 +177,7 @@ def plotar_trajetoria_intercepto(xB, yB, xR, yR, tempo_dist, intercepto):
 # Declarando as variáveis simbólicas para derivada
 t, s = symbols('t s')
 def plotar_vxvy_axay(titulo, derivadaX, derivadaY, componente_va):
+    global bola_t_pos
     '''
     ==================================
            PLOTA VX/VY E AX/AY
@@ -218,7 +211,3 @@ def plotar_vxvy_axay(titulo, derivadaX, derivadaY, componente_va):
         )
         
 # ==================================================
-
-
-# Criando listas com as posicoes da bola
-criar_listas_posicao()

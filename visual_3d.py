@@ -1,8 +1,9 @@
 # ====================================================
 # ------------------  BIBLIOTECAS --------------------
 from logica_robo     import * 
-from plot_graficos import *
+# from plot_graficos import *
 from vpython  import *
+from logica_robo import *
 from sympy    import *
 # ====================================================
 

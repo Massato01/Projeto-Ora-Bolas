@@ -1,7 +1,7 @@
 # ==================================================
 # ------------------ BIBLIOTECAS -------------------
 import math
-from   plot_graficos          import *
+from   plot_graficos     import *
 from   sympy             import *
 from   numpy             import ones, vstack
 from   numpy.linalg      import lstsq
@@ -19,8 +19,8 @@ from   numpy.linalg      import lstsq
 # ==================================================
 # --------------- VARIÁVEIS GLOBAIS ----------------
 # Bola
-x_bola = 0
-y_bola = 0
+x_bola = []
+y_bola = []
 
 # Robo
 x_robo = 0
@@ -132,63 +132,41 @@ def equacao_da_reta(pos_inicial_robo, pos_final_robo, x_robo, y_robo,
     print(f'Equação da Reta = {m}x + {b}')
 
 
-    # [ Variável temporária para não interfirir na variável da função ] 
-    pos_inicial_xRobo_temp = x_robo
-
     # ====----====----====----====----====----====----====----====
     #    [ Encontra as componentes VX e VY, e AX e AY do robô ]
     # ====----====----====----====----====----====----====----====
-    
-    # Variáveis globais
-    # vx_robo = []
-    # vy_robo = []
-    # ax_robo = []
-    # ay_robo = []
 
-    # link documentação sympy: https://docs.sympy.org/latest/tutorial/calculus.html
-    x = Symbol('x')
-    
-    
     # Cálculo da direção:
     #     tan(teta) = Ry / Rx
     #     TETA = arctan(tan(teta))
     #
-    #  -> [ Coeficiente Angular = tan(teta), portanto a derivada
-    #       da equação da reta anula as constantes, sobrando apenas
-    #       o "m". ]
+    #  -> [ Coeficiente Angular = tan(teta) -> "m". ]
     #     
-    #     teta = arco tan(derivada(equação da reta))
-
-    # Derivada da posição da bola
-    dx_pos_bola = diff(m * x + b, x)
+    #     teta = arco tan(m)
 
     # Calculando VX/VY e AX/AY e armazenando nas listas acima
     for index in range(len(velocidade_robo)):
-        teta = atan(dx_pos_bola)
+        teta = atan(m)
         
         # vx = v0 * cos(teta)          ax = a0 * cos(teta)
         vx_robo.append(velocidade_robo[index] * cos(teta))
-        ax_robo.append(aceleracao_robo[index] * cos(teta))
+        vy_robo.append(velocidade_robo[index] * sin(teta))
 
         # vy = v0 * sen(teta)          ay = a0 * sen(teta)
-        vy_robo.append(velocidade_robo[index] * sin(teta))
+        ax_robo.append(aceleracao_robo[index] * cos(teta))
         ay_robo.append(aceleracao_robo[index] * sin(teta))
         # print(teta)
-
-    # [ Novamente armazenando posição inicial do robô X em uma variável temporária ]
-    pos_inicial_xRobo_temp = x_robo
     
     
     # ====----====----====----====----====----====
-    #  [ Encontra as coordenadas X e Y do robô ]
+    # [ Armazenando as coordenadas X e Y do robô ]
     # ====----====----====----====----====----====
-    #  Laço utilizado para capturar os valores de x e y (utilizando a equação encontrada)
     #  Cria-se uma lista para cada posição, X e Y, que serão utilizados no vPython (IGNORAR EM C)
     
-    i = 0
-    cte = 0
+    # [ Variável temporária para não interfirir na variável da função ] 
+    pos_inicial_xRobo_temp = x_robo
 
-    cte = 0.02 if intercepto == 1 else 0.016
+    i = 0
 
     if pos_inicial_xRobo_temp < menor_distX:
         while pos_inicial_xRobo_temp < menor_distX:
@@ -197,10 +175,10 @@ def equacao_da_reta(pos_inicial_robo, pos_final_robo, x_robo, y_robo,
             
             if i < len(vx_robo):
                 # Incrementa a posição do robô de acordo com o VX encontrado
-                pos_inicial_xRobo_temp += vx_robo[i] * cte
+                pos_inicial_xRobo_temp += vx_robo[i] * 0.02
 
             else:
-                pos_inicial_xRobo_temp += vx_robo[len(velocidade_robo) - 1] * cte
+                pos_inicial_xRobo_temp += vx_robo[len(velocidade_robo) - 1] * 0.02
             
             i += 1
     
@@ -210,11 +188,11 @@ def equacao_da_reta(pos_inicial_robo, pos_final_robo, x_robo, y_robo,
             lista_yRobo.append(m * pos_inicial_xRobo_temp + b)
             
             if i < len(vx_robo):
-                pos_inicial_xRobo_temp -= vx_robo[i] * cte
+                pos_inicial_xRobo_temp -= vx_robo[i] * 0.02
 
             else:
                 # Decrementa a posição do robô de acordo com o VX encontrado
-                pos_inicial_xRobo_temp -= vx_robo[len(vx_robo) - 1] * cte 
+                pos_inicial_xRobo_temp -= vx_robo[len(vx_robo) - 1] * 0.02
             i += 1
 
         for i in range(len(vx_robo)):
