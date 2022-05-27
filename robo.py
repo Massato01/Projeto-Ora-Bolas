@@ -27,18 +27,18 @@ def inicializar_janela_coordenadas():
     # ==========================================================
 
     master = tk.Tk()
-    master.geometry('450x180')
+    master.geometry('450x250')
     master.title('Posição inicial do Robô')
     master.configure(bg='#FAFBFF')
 
     # Cria as LABELS para que o usuário digite as coordenadas
     window_title = tk.Label(master, text="COORDENADAS INICIAIS DO ROBÔ")
-    xLabel_coord = tk.Label(master, text="Digite a coordenada X do Robô:")
-    yLabel_coord = tk.Label(master, text="Digite a coordenada Y do Robô:")
+    xLabel_coord = tk.Label(master, text="Coordenada X do Robô:")
+    yLabel_coord = tk.Label(master, text="Coordenada Y do Robô:")
 
-    window_title.place(relx=0.5, rely=0.20, anchor='center')
-    xLabel_coord.place(relx=0.3, rely=0.4, anchor='center')
-    yLabel_coord.place(relx=0.3, rely=0.55, anchor='center')
+    window_title.place(relx=0.5, rely=0.15, anchor='center')
+    xLabel_coord.place(relx=0.5, rely=0.35, anchor='center')
+    yLabel_coord.place(relx=0.5, rely=0.6, anchor='center')
 
     window_title.configure(font=('Helvetica', 12, 'bold'), bg='#FAFBFF', fg='#2d2e30')
     xLabel_coord.configure(font=('Helvetica', 12, 'normal'), bg='#FAFBFF', fg='#2d2e30')
@@ -46,12 +46,12 @@ def inicializar_janela_coordenadas():
 
 
     # Cria duas caixas de diálogo, uma para cada coordenada
-    xRobo_input = tk.Entry(master)
-    yRobo_input = tk.Entry(master)
+    xRobo_input = tk.Entry(master, justify = 'center')
+    yRobo_input = tk.Entry(master, justify = 'center')
 
     # Separa os campos de entrada de X e de Y
-    xRobo_input.place(relx=0.78, rely=0.4, anchor='center')
-    yRobo_input.place(relx=0.78, rely=0.55, anchor='center')
+    xRobo_input.place(relx=0.5, rely=0.44, anchor='center')
+    yRobo_input.place(relx=0.5, rely=0.69, anchor='center')
 
     xRobo_input.configure(bg='white', fg='#2d2e30', font=('Helvetica', 10, 'bold'))
     yRobo_input.configure(bg='white', fg='#2d2e30', font=('Helvetica', 10, 'bold'))
@@ -244,7 +244,7 @@ def inicializar_janela_coordenadas():
 
     btn = tk.Button(master, command = enviar_coordenadas)
 
-    btn.place(relx=0.5, rely=0.8, anchor='center')
+    btn.place(relx=0.5, rely=0.9, anchor='center')
     btn.configure(text="Enviar", font = ('Helvetica', 11, 'normal'), bg='#FAFBFF', fg='#2d2e30')
 
     # Mantem a janela aberta
@@ -286,27 +286,28 @@ def visualizar_dados():
     # ========================================
     #                 INPUTS
     # ========================================
-    instante_input = tk.Entry(master, font=('Helvetica', 12, 'normal'))
+    instante_input = tk.Entry(master, font=('Helvetica', 12, 'normal'), justify = 'left')
     
     # lista_xRobo / lista_yRobo
-    input_xRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'))
-    input_yRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'))
+    input_xRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'), justify = 'left')
+    input_yRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'), justify = 'left')
 
     # bola_x_pos / bola_y_pos
-    input_xBola = tk.Entry(master, font=('Helvetica', 12, 'normal'))
-    input_yBola = tk.Entry(master, font=('Helvetica', 12, 'normal'))
+    input_xBola = tk.Entry(master, font=('Helvetica', 12, 'normal'), justify = 'left')
+    input_yBola = tk.Entry(master, font=('Helvetica', 12, 'normal'), justify = 'left')
 
     # velocidade_robo / aceleracao_robo
-    input_vRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'))
-    input_aRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'))
+    input_vRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'), justify = 'left')
+    input_aRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'), justify = 'left')
 
     # vx_robo / vy_robo
-    input_vxRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'))
-    input_vyRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'))
+    input_vxRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'), justify = 'left')
+    input_vyRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'), justify = 'left')
 
     # ax_robo / ay_robo
-    input_axRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'))
-    input_ayRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'))
+    input_axRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'), justify = 'left')
+    input_ayRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'), justify = 'left'
+    )
 
     # ========================================
     #              LABEL PLACING
