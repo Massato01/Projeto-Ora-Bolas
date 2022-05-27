@@ -125,7 +125,7 @@ def equacao_da_reta(pos_inicial_robo, pos_final_robo, x_robo, y_robo,
     # --------------------------------------
     #    Visualizando a Equação da Reta
     # --------------------------------------
-    # print(f'Equação da Reta = {m}x + {c}')
+    print(f'Equação da Reta = {m}x + {cl}')
 
 
     # variável temporária para armazenar a posição inicial do robô em x
@@ -144,6 +144,18 @@ def equacao_da_reta(pos_inicial_robo, pos_final_robo, x_robo, y_robo,
     # link documentação sympy: https://docs.sympy.org/latest/tutorial/calculus.html
     x = Symbol('x')
     
+    
+    # Cálculo da direção:
+    #     tan(teta) = Ry / Rx
+    #     TETA = arctan(tan(teta))
+    #
+    #  -> [ Coeficiente Angular = tan(teta), portanto a derivada
+    #       da equação da reta anula as constantes, sobrando apenas
+    #       o "m". ]
+    #     
+    #     teta = arco tan(derivada(equação da reta))
+    #        
+
     # Derivada da posição da bola
     dx_pos_bola = diff(m * x + cl, x)
 
@@ -151,13 +163,14 @@ def equacao_da_reta(pos_inicial_robo, pos_final_robo, x_robo, y_robo,
     for index in range(len(velocidade_robo)):
         teta = atan(dx_pos_bola)
         
-        # vx = v * cos(teta)            ax = a * cos(teta)
+        # vx = v0 * cos(teta)          ax = a0 * cos(teta)
         vx_robo.append(velocidade_robo[index] * cos(teta))
         ax_robo.append(aceleracao_robo[index] * cos(teta))
 
-        # vy = v * sen(teta)            ay = a * sen(teta)
+        # vy = v0 * sen(teta)          ay = a0 * sen(teta)
         vy_robo.append(velocidade_robo[index] * sin(teta))
         ay_robo.append(aceleracao_robo[index] * sin(teta))
+        print(teta)
 
     # Novamente armazenando posição inicial do robô X em uma variável temporária
     pos_inicial_xRobo_temp = x_robo
