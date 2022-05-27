@@ -12,29 +12,6 @@ from   logica_robo        import *
 
 # ==================================================
 # -------------------- FUNÇÕES ---------------------
-# def criar_listas_posicao():
-#     '''
-#     ==================================
-#     CRIA LISTAS PARA AS COORDENADAS DA
-#            TRAJETÓRIA DA BOLA
-#     ==================================
-#     '''
-
-#     global bola_x_pos, bola_y_pos, bola_t_pos
-
-#     trajetoria = pd.read_csv('./data/trajetoria-bola.csv')
-
-#     trajetoria = trajetoria.replace(',', '.', regex = True).astype(float)
-
-#     bola_x_pos = trajetoria.iloc[:, 1].values
-#     bola_y_pos = trajetoria.iloc[:, 2].values
-#     bola_t_pos = trajetoria.iloc[:, 0].values
-
-#     # print(bola_x_pos)
-#     # print(bola_y_pos)
-#     # print(bola_t_pos)
-
-
 def plotar_grafico(titulo='Title', x=None, y=None, xlabel='x', ylabel='y'):
     '''
     ============================================
