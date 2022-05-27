@@ -18,25 +18,29 @@ from   numpy.linalg      import lstsq
 
 # ==================================================
 # --------------- VARIÁVEIS GLOBAIS ----------------
-y_bola = 0
+# Bola
 x_bola = 0
+y_bola = 0
+
+# Robo
 x_robo = 0
 y_robo = 0
-menor_distX = 0
-menor_distY = 0
-menor_distT = 0
-m = cl = 0
-
 velocidade_robo = []
 aceleracao_robo = []
 lista_xRobo = []
 lista_yRobo = []
-
 lista_tempo = []
 vx_robo = []
-ax_robo = []
 vy_robo = []
+ax_robo = []
 ay_robo = []
+
+# Robo/Bola
+menor_distX = 0
+menor_distY = 0
+menor_distT = 0
+m = b = 0
+
 
 intercepto = False
 # ==================================================
@@ -99,7 +103,7 @@ def equacao_da_reta(pos_inicial_robo, pos_final_robo, x_robo, y_robo,
     return -> equação da reta que o robô percorrerá para interceptar a bola
     '''
     # Coeficientes Angular e Linear
-    global m, cl
+    global m, b
 
     # Listas para armazenar as posições em X e Y do robô
     global lista_xRobo, lista_yRobo
@@ -120,12 +124,12 @@ def equacao_da_reta(pos_inicial_robo, pos_final_robo, x_robo, y_robo,
     x_coords, y_coords = zip(*pontos)
 
     A = vstack([x_coords, ones(len(x_coords))]).T
-    m, cl = lstsq(A, y_coords, rcond=-1)[0]
+    m, b = lstsq(A, y_coords, rcond=-1)[0]
 
     # --------------------------------------
     #    Visualizando a Equação da Reta
     # --------------------------------------
-    print(f'Equação da Reta = {m}x + {cl}')
+    print(f'Equação da Reta = {m}x + {b}')
 
 
     # [ Variável temporária para não interfirir na variável da função ] 
@@ -156,7 +160,7 @@ def equacao_da_reta(pos_inicial_robo, pos_final_robo, x_robo, y_robo,
     #     teta = arco tan(derivada(equação da reta))
 
     # Derivada da posição da bola
-    dx_pos_bola = diff(m * x + cl, x)
+    dx_pos_bola = diff(m * x + b, x)
 
     # Calculando VX/VY e AX/AY e armazenando nas listas acima
     for index in range(len(velocidade_robo)):
@@ -189,7 +193,7 @@ def equacao_da_reta(pos_inicial_robo, pos_final_robo, x_robo, y_robo,
     if pos_inicial_xRobo_temp < menor_distX:
         while pos_inicial_xRobo_temp < menor_distX:
             lista_xRobo.append(pos_inicial_xRobo_temp)
-            lista_yRobo.append(m * pos_inicial_xRobo_temp + cl)
+            lista_yRobo.append(m * pos_inicial_xRobo_temp + b)
             
             if i < len(vx_robo):
                 # Incrementa a posição do robô de acordo com o VX encontrado
@@ -203,7 +207,7 @@ def equacao_da_reta(pos_inicial_robo, pos_final_robo, x_robo, y_robo,
     else:
         while pos_inicial_xRobo_temp > menor_distX:
             lista_xRobo.append(pos_inicial_xRobo_temp)
-            lista_yRobo.append(m * pos_inicial_xRobo_temp + cl)
+            lista_yRobo.append(m * pos_inicial_xRobo_temp + b)
             
             if i < len(vx_robo):
                 pos_inicial_xRobo_temp -= vx_robo[i] * cte

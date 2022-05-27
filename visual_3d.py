@@ -7,9 +7,9 @@ from sympy    import *
 # ====================================================
 
 # Listas para o momento de interceptação
-intercepto_xRobo = []
-intercepto_yRobo = []
-intercepto_tRobo = []
+intercepto_x = []
+intercepto_y = []
+intercepto_t = []
 distancia_robo_bola = [] # NÃO É A FUNÇÃO "dist_robo_bola()"
 
 
@@ -147,9 +147,9 @@ while True:
                 BOLA.pos.y >= ROBO_CORPO.pos.y - (ROBO_CORPO.length-0.15)):
                 
                 if intercepto == True:
-                    intercepto_xRobo.append(ROBO_CORPO.pos.x)
-                    intercepto_yRobo.append(ROBO_CORPO.pos.y)
-                    intercepto_tRobo.append(bola_t_pos[cont_bola])
+                    intercepto_x.append(ROBO_CORPO.pos.x)
+                    intercepto_y.append(ROBO_CORPO.pos.y)
+                    intercepto_t.append(bola_t_pos[cont_bola])
 
                     distancia_robo_bola.append(dist_robo_bola(
                         ROBO_CORPO.pos.x - ROBO_CORPO.width / 10,
@@ -177,9 +177,9 @@ while True:
                     BOLA.pos.y
                 ))
 
-                intercepto_xRobo.append(ROBO_CORPO.pos.x)
-                intercepto_yRobo.append(ROBO_CORPO.pos.y)
-                intercepto_tRobo.append(bola_t_pos[cont_bola])
+                intercepto_x.append(ROBO_CORPO.pos.x)
+                intercepto_y.append(ROBO_CORPO.pos.y)
+                intercepto_t.append(bola_t_pos[cont_bola])
 
         # ENCERRA O LOOP INFINITO
         break

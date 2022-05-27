@@ -434,7 +434,7 @@ print(f'''
 {menor_distY = }\n
 {menor_distT = }\n
 {m = }\n
-{cl = }\n
+{b = }\n
 {lista_yRobo = }\n
 {lista_xRobo = }\n
 {lista_tempo = }\n

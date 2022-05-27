@@ -141,11 +141,11 @@ Instante de interceptação: {menor_distT:.1f}''', font = ('Helvetica', 12, 'bol
 
         # X e Y do Robô em função do tempo
         plot_duplo('X do robô em função do Tempo',
-                    intercepto_tRobo, intercepto_xRobo,
+                    intercepto_t, intercepto_x,
                     't/s', 'x/m', 'x(t)',
                     
                     'Y do robô em função do Tempo',
-                    intercepto_tRobo, intercepto_yRobo,
+                    intercepto_t, intercepto_y,
                     't/s', 'x/m', 'x(t)')
         # ------------------------------------------
 
@@ -206,7 +206,7 @@ Instante de interceptação: {menor_distT:.1f}''', font = ('Helvetica', 12, 'bol
         #      DISTÂNCIA ENTRE O ROBÔ E A BOLA
 
         plotar_grafico('Distância entre o robô e a bola em função do tempo',
-                       intercepto_tRobo, distancia_robo_bola,
+                       intercepto_t, distancia_robo_bola,
                        'Segundos', 'Metros')
         # ------------------------------------------
 
