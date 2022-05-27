@@ -1,7 +1,7 @@
 # ==================================================
 # ------------------ BIBLIOTECAS -------------------
 import tkinter     as     tk
-from   graficos    import *
+from   plot_graficos    import *
 from   visual_3d   import *
 # ==================================================
 

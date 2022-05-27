@@ -1,7 +1,7 @@
 # ====================================================
 # ------------------  BIBLIOTECAS --------------------
-from robo     import * 
-from graficos import *
+from logica_robo     import * 
+from plot_graficos import *
 from vpython  import *
 from sympy    import *
 # ====================================================

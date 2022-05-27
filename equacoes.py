@@ -1,7 +1,7 @@
 # ==================================================
 # ------------------ BIBLIOTECAS -------------------
 import math
-from   graficos          import *
+from   plot_graficos          import *
 from   sympy             import *
 from   numpy             import ones, vstack
 from   numpy.linalg      import lstsq
