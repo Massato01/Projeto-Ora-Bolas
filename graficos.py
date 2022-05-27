@@ -1,16 +1,12 @@
 # ==================================================
 # ------------------ BIBLIOTECAS -------------------
-import dash
 import pandas             as pd
 import matplotlib.pyplot  as plt
 import matplotlib.patches as mpatches
 import plotly.express     as px
-import plotly.graph_objs  as go
 from   math               import *
 from   sympy              import *
 from   sympy              import symbols
-from   dash               import dcc, html
-from   dash.dependencies  import Input, Output
 # ==================================================
 
 

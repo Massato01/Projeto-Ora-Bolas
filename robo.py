@@ -2,7 +2,7 @@
 # ------------------ BIBLIOTECAS -------------------
 import tkinter  as tk
 from   tkinter  import *
-from   tkinter import messagebox
+from   tkinter  import messagebox
 from   sympy    import *
 
 # Calculos da distancia, tempo e equacao da reta

@@ -1,9 +1,9 @@
 # ====================================================
 # ------------------  BIBLIOTECAS --------------------
-from robo    import * 
+from robo     import * 
 from graficos import *
-from vpython import *
-from sympy   import *
+from vpython  import *
+from sympy    import *
 # ====================================================
 
 # Listas para o momento de interceptação

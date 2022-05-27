@@ -3,7 +3,7 @@
 import math
 from   graficos          import *
 from   sympy             import *
-from   numpy             import append, ones, vstack
+from   numpy             import ones, vstack
 from   numpy.linalg      import lstsq
 # ==================================================
 
