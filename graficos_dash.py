@@ -1,6 +1,8 @@
 import dash
-from dash      import dcc, html
-from visual_3d import *
+import plotly.graph_objs as     go
+from   dash              import dcc, html
+from   visual_3d         import *
+from   dash.dependencies import Input, Output
 
 
 
@@ -90,7 +92,8 @@ def plotar_grafico_dash():
 
     # ===== DYNAMIC FUNCTION FOR THE CHANGE OF PLOTS =====
     def update_figure(selected_type):
-        #  ----------------- Trajetoria da Bola ----------------
+        
+        #  TRAJETORIA DA BOLA EM X
         if selected_type == 'traj_bolaX':
             return {'data' : [
                     go.Scatter(
@@ -98,12 +101,6 @@ def plotar_grafico_dash():
                         y = bola_x_pos,
                         mode = 'lines',
                         marker = {'color' : '#5B0FFF'}
-                        # marker = {
-                        #     'color' : '#5B0FFF', #5B0FFF
-                        #     'size' : 12,
-                        #     'symbol' : 'circle-open-dot',
-                        #     'line' : {'width' : 2}
-                        #     }
                         )
                     ],
 
@@ -116,9 +113,8 @@ def plotar_grafico_dash():
                                 paper_bgcolor = '#FAFBFF'
                                 )              
                 }
-        # -----------------------------------------------
 
-        # ----------------- LINE PLOT -------------------
+        # TRAJETORIA DA BOLA EM Y
         elif selected_type == 'traj_bolaY':
             return {'data' : [
                         go.Scatter(
@@ -138,47 +134,7 @@ def plotar_grafico_dash():
                                     paper_bgcolor = '#FAFBFF'
                                     )              
                     }
-        
-        elif selected_type == 'velocidade_bola':
-            return {'data' : [
-                    go.Scatter(
-                        x = [0, 0],
-                        y = [0, 0],
-                        mode = 'lines',
-                        marker = {'color' : '#5B0FFF'}
-                        )
-                    ],
-
-                    'layout' : go.Layout(
-                                title = '<b>Velocidade da Bola<b>',
-                                font = {'color' : 'black'},
-                                xaxis = {'title' : f'<b><i>t/s<i><b>'},
-                                yaxis = {'title' : f'<b>x/m<b>'},
-                                plot_bgcolor = '#FAFBFF',
-                                paper_bgcolor = '#FAFBFF'
-                                )              
-                }
-        
-        elif selected_type == 'aceleracao_bola':
-            return {'data' : [
-                    go.Scatter(
-                        x = [0, 0],
-                        y = [0, 0],
-                        mode = 'lines',
-                        marker = {'color' : '#5B0FFF'}
-                        )
-                    ],
-
-                    'layout' : go.Layout(
-                                title = '<b>Aceleração da Bola<b>',
-                                font = {'color' : 'black'},
-                                xaxis = {'title' : f'<b><i>t/s<i><b>'},
-                                yaxis = {'title' : f'<b>x/m<b>'},
-                                plot_bgcolor = '#FAFBFF',
-                                paper_bgcolor = '#FAFBFF'
-                                )              
-                }
-        
+                
         # TRAJETORIA DO ROBO EM X
         elif selected_type == 'traj_roboX':
             return {'data' : [
@@ -263,47 +219,47 @@ def plotar_grafico_dash():
                                 )              
                 }
             
-        # # VX DO ROBO
-        # elif selected_type == 'VX_robo':
-        #     return {'data' : [
-        #             go.Scatter(
-        #                 x = lista_tempo,
-        #                 y = vx_robo,
-        #                 mode = 'lines',
-        #                 marker = {'color' : '#5B0FFF'}
-        #                 )
-        #             ],
+        # VX DO ROBO
+        elif selected_type == 'VX_robo':
+            return {'data' : [
+                    go.Scatter(
+                        x = lista_tempo,
+                        y = vx_robo,
+                        mode = 'lines',
+                        marker = {'color' : '#5B0FFF'}
+                        )
+                    ],
 
-        #             'layout' : go.Layout(
-        #                         title = '<b>VX do Robô<b>',
-        #                         font = {'color' : 'black'},
-        #                         xaxis = {'title' : f'<b><i>t(s)<i><b>'},
-        #                         yaxis = {'title' : f'<b>Vx(m/s)<b>'},
-        #                         plot_bgcolor = '#FAFBFF',
-        #                         paper_bgcolor = '#FAFBFF'
-        #                         )              
-        #         }
+                    'layout' : go.Layout(
+                                title = '<b>VX do Robô<b>',
+                                font = {'color' : 'black'},
+                                xaxis = {'title' : f'<b><i>t(s)<i><b>'},
+                                yaxis = {'title' : f'<b>Vx(m/s)<b>'},
+                                plot_bgcolor = '#FAFBFF',
+                                paper_bgcolor = '#FAFBFF'
+                                )              
+                }
         
-        # # VY DO ROBO
-        # if selected_type == 'VY_robo':
-        #     return {'data' : [
-        #                 go.Scatter(
-        #                     x = lista_tempo,
-        #                     y = vy_robo,
-        #                     mode = 'lines',
-        #                     marker = {'color' : '#5B0FFF'}
-        #                     )
-        #                 ],
+        # VY DO ROBO
+        if selected_type == 'VY_robo':
+            return {'data' : [
+                        go.Scatter(
+                            x = lista_tempo,
+                            y = vy_robo,
+                            mode = 'lines',
+                            marker = {'color' : '#5B0FFF'}
+                            )
+                        ],
 
-        #                 'layout' : go.Layout(
-        #                             title = '<b>VY do Robô<b>',
-        #                             font = {'color' : 'black'},
-        #                             xaxis = {'title' : f'<b><i>t(s)<i><b>'},
-        #                             yaxis = {'title' : f'<b>Vy(m/s)<b>'},
-        #                             plot_bgcolor = '#FAFBFF',
-        #                             paper_bgcolor = '#FAFBFF'
-        #                             )              
-        #             }
+                        'layout' : go.Layout(
+                                    title = '<b>VY do Robô<b>',
+                                    font = {'color' : 'black'},
+                                    xaxis = {'title' : f'<b><i>t(s)<i><b>'},
+                                    yaxis = {'title' : f'<b>Vy(m/s)<b>'},
+                                    plot_bgcolor = '#FAFBFF',
+                                    paper_bgcolor = '#FAFBFF'
+                                    )              
+                    }
 
         # AX DO ROBO
         elif selected_type == 'AX_robo':
