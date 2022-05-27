@@ -1,10 +1,9 @@
 # ====================================================
 # ------------------  BIBLIOTECAS --------------------
-from logica_robo     import * 
-# from plot_graficos import *
-from vpython  import *
+from logica_robo import * 
+from vpython     import *
 from logica_robo import *
-from sympy    import *
+from sympy       import *
 # ====================================================
 
 # Listas para o momento de interceptação
@@ -21,7 +20,7 @@ scene = canvas(width = 800, height = 600)
 
 scene.caption = f'''
 <h1 style="text-align:center">ORA BOLAS!</h1>
-<h3 style="text-align:center"><strong>Precione qualquer tecla para iniciar a animação!</strong>\n
+<h3 style="text-align:center"><strong>Pressione qualquer tecla para iniciar a animação!</strong>\n
 Coordenadas escolhidas para a posição inicial do robô:
 [  X: {x_robo}  ]
 [  Y: {y_robo}  ]</h3>
@@ -41,10 +40,6 @@ CAMPO = box(pos = vector(4.5, 3, 0), width = 0.05, length = 10, height = 7.2,
 # CENTRALIZANDO A CAMERA COM RELAÇÃO AO CAMPO
 scene.camera.follow(CAMPO)
 # -------------------------------------------
-
-# Campo de teste [ IGNORAR ]
-# CAMPO = box(pos = vector(0, 1, 0), width = 60, length = 1, height = 90,
-#             texture = './assets/campo.jpg')
 
 
 # ====----====----====----====----====----====----====

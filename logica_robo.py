@@ -10,7 +10,9 @@ from   sympy    import *
 from   equacoes import *
 # ==========================================================
 
-#
+# ==========================================================
+#      PEGANDO A TRAJETÓRIA DA BOLA DO ARQUIVO CSV
+# ==========================================================
 trajetoria = pd.read_csv('./data/trajetoria-bola.csv')
 
 trajetoria = trajetoria.replace(',', '.', regex = True).astype(float)
