@@ -19,8 +19,8 @@ distancia_robo_bola = [] # NÃO É A FUNÇÃO "dist_robo_bola()"
 scene = canvas(width = 800, height = 600)
 
 scene.caption = f'''
-<h1>ORA BOLAS!</h1>
-<h3><strong>Precione qualquer tecla para iniciar a animação!</strong>\n
+<h1 style="text-align:center">ORA BOLAS!</h1>
+<h3 style="text-align:center"><strong>Precione qualquer tecla para iniciar a animação!</strong>\n
 Coordenadas escolhidas para a posição inicial do robô:
 [  X: {x_robo}  ]
 [  Y: {y_robo}  ]</h3>
@@ -63,7 +63,7 @@ GOL_ESQUERDA = box(pos = vector(0.05, 3, 0.26), color = color.white,
 # ====----====----====----====----====----====----====
 # raio da bola = 0.05
 BOLA = sphere(pos = vector(bola_x_pos[0], bola_y_pos[0], 0.07), color = color.white,
-              radius = 0.05,
+              radius = 0.1,
               make_trail = True, trail_color = color.white, interval = 1,
               texture = './assets/dain.jpg')
 
@@ -73,7 +73,7 @@ BOLA = sphere(pos = vector(bola_x_pos[0], bola_y_pos[0], 0.07), color = color.wh
 # ====----====----====----====----====----====----====
 ROBO_CORPO = cylinder(pos = vector(x_robo, y_robo, 0.3),
                       color = color.black,
-                      width = 0.25, length = 0.25, height = 0.25,
+                      width = 0.35, length = 0.35, height = 0.35,
                       make_trail = True, trail_color = color.cyan,
                       interval = 1)
 
@@ -142,10 +142,12 @@ while True:
             # -----------------------------------------
             # MOMENTO DA INTERCEPTAÇÃO DO ROBÔ E A BOLA
             # -----------------------------------------
-            if (BOLA.pos.x > ROBO_CORPO.pos.x - (ROBO_CORPO.height-0.12) and
-                BOLA.pos.y >= (ROBO_CORPO.height-0.12)):
+            # if (BOLA.pos.x > ROBO_CORPO.pos.x - (ROBO_CORPO.height-0.15) and
+            #     BOLA.pos.y >= (ROBO_CORPO.height-0.15)):
+            if (BOLA.pos.x > ROBO_CORPO.pos.x - (ROBO_CORPO.height-0.15) and
+                BOLA.pos.y >= ROBO_CORPO.pos.y - (ROBO_CORPO.length-0.15)):
                 
-                if intercepto is not False:
+                if intercepto == True:
                     intercepto_xRobo.append(ROBO_CORPO.pos.x)
                     intercepto_yRobo.append(ROBO_CORPO.pos.y)
                     intercepto_tRobo.append(bola_t_pos[cont_bola])
@@ -158,7 +160,12 @@ while True:
                     ))
 
                     scene.append_to_caption(
-                        f'''<h2 style="border:2px solid black">INTERCEPTOU!\nPonto X da interceptação: {menor_distX:.1f}\nPonto Y da interceptação: {menor_distY:.1f}\nPonto T da interceptação: {menor_distT:.1f}</h2>'''
+                        f'''<h2 style="border:2px solid black; text-align:center">INTERCEPTOU!\nPonto X da interceptação: {menor_distX:.2f}\nPonto Y da interceptação: {menor_distY:.2f}\nPonto T da interceptação: {menor_distT:.2f}</h2>'''
+                    )
+                
+                else:
+                    scene.append_to_caption(
+                        f'''<h2 style="border:2px solid black; text-align:center">O Robô não conseguiu interceptar...'''
                     )
 
                 break

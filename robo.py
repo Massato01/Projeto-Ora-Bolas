@@ -1,7 +1,8 @@
 # ==================================================
 # ------------------ BIBLIOTECAS -------------------
 import tkinter  as tk
-from   tkinter  import ANCHOR, Button, messagebox
+from   tkinter  import *
+from   tkinter import messagebox
 from   sympy    import *
 
 # Calculos da distancia, tempo e equacao da reta
@@ -259,7 +260,7 @@ def visualizar_dados():
     # ========================================
     #                  LABELS
     # ========================================
-    window_title = tk.Label(master, text="COORDENADAS INICIAIS DO ROBÔ")
+    window_title = tk.Label(master, text="VISUALIZAÇÃO DOS DADOS")
     label_instante = tk.Label(master, text="DIGITE O INSTANTE:")
     
     # lista_xRobo / lista_yRobo
@@ -285,86 +286,85 @@ def visualizar_dados():
     # ========================================
     #                 INPUTS
     # ========================================
-    instante_input = tk.Entry(master)
-    i = int(instante_input.get())
+    instante_input = tk.Entry(master, font=('Helvetica', 12, 'normal'))
     
     # lista_xRobo / lista_yRobo
-    input_xRobo = tk.Entry(master)
-    input_yRobo = tk.Entry(master)
+    input_xRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'))
+    input_yRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'))
 
     # bola_x_pos / bola_y_pos
-    input_xBola = tk.Entry(master)
-    input_yBola = tk.Entry(master)
+    input_xBola = tk.Entry(master, font=('Helvetica', 12, 'normal'))
+    input_yBola = tk.Entry(master, font=('Helvetica', 12, 'normal'))
 
     # velocidade_robo / aceleracao_robo
-    input_vRobo = tk.Entry(master)
-    input_aRobo = tk.Entry(master)
+    input_vRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'))
+    input_aRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'))
 
     # vx_robo / vy_robo
-    input_vxRobo = tk.Entry(master)
-    input_vyRobo = tk.Entry(master)
+    input_vxRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'))
+    input_vyRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'))
 
     # ax_robo / ay_robo
-    input_axRobo = tk.Entry(master)
-    input_ayRobo = tk.Entry(master)
+    input_axRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'))
+    input_ayRobo = tk.Entry(master, font=('Helvetica', 12, 'normal'))
 
     # ========================================
     #              LABEL PLACING
     # ========================================
     window_title.place(relx=0.5, rely=0.1, anchor='center')
-    label_instante.place(relx=0.37, rely=0.2, anchor='center')
+    label_instante.place(relx=0.3, rely=0.2, anchor='center')
 
     # lista_xRobo / lista_yRobo
-    label_xRobo.place(relx=0.36, rely=0.45, anchor='center')
-    label_yRobo.place(relx=0.36, rely=0.5, anchor='center')
+    label_xRobo.place(relx=0.35, rely=0.35, anchor='center')
+    label_yRobo.place(relx=0.35, rely=0.4, anchor='center')
 
     # bola_x_pos / bola_y_pos
-    label_xBola.place(relx=0.36, rely=0.55, anchor='center')
-    label_yBola.place(relx=0.36, rely=0.6, anchor='center')
+    label_xBola.place(relx=0.35, rely=0.45, anchor='center')
+    label_yBola.place(relx=0.35, rely=0.5, anchor='center')
 
     # velocidade_robo / aceleracao_robo
-    label_vRobo.place(relx=0.35, rely=0.65, anchor='center')
-    label_aRobo.place(relx=0.35, rely=0.7, anchor='center')
+    label_vRobo.place(relx=0.34, rely=0.55, anchor='center')
+    label_aRobo.place(relx=0.34, rely=0.6, anchor='center')
 
     # vx_robo / vy_robo
-    label_vxRobo.place(relx=0.40, rely=0.75, anchor='center')
-    label_vyRobo.place(relx=0.40, rely=0.8, anchor='center')
+    label_vxRobo.place(relx=0.39, rely=0.65, anchor='center')
+    label_vyRobo.place(relx=0.39, rely=0.7, anchor='center')
 
     # ax_robo / ay_robo
-    label_axRobo.place(relx=0.40, rely=0.85, anchor='center')
-    label_ayRobo.place(relx=0.40, rely=0.9, anchor='center')
+    label_axRobo.place(relx=0.39, rely=0.75, anchor='center')
+    label_ayRobo.place(relx=0.39, rely=0.8, anchor='center')
 
 
     # ========================================
     #              INPUT PLACING
     # ========================================
-    instante_input.place(relx=0.63, rely=0.2, anchor='center')
+    instante_input.place(relx=0.6, rely=0.2, anchor='center')
 
     # lista_xRobo / lista_yRobo
-    input_xRobo.place(relx=0.62, rely=0.45, anchor='center')
-    input_yRobo.place(relx=0.62, rely=0.5, anchor='center')
+    input_xRobo.place(relx=0.63, rely=0.35, anchor='center')
+    input_yRobo.place(relx=0.63, rely=0.4, anchor='center')
 
     # bola_x_pos / bola_y_pos
-    input_xBola.place(relx=0.62, rely=0.55, anchor='center')
-    input_yBola.place(relx=0.62, rely=0.6, anchor='center')
+    input_xBola.place(relx=0.63, rely=0.45, anchor='center')
+    input_yBola.place(relx=0.63, rely=0.5, anchor='center')
 
     # velocidade_robo / aceleracao_robo
-    input_vRobo.place(relx=0.62, rely=0.65, anchor='center')
-    input_aRobo.place(relx=0.62, rely=0.7, anchor='center')
+    input_vRobo.place(relx=0.63, rely=0.55, anchor='center')
+    input_aRobo.place(relx=0.63, rely=0.6, anchor='center')
 
     # vx_robo / vy_robo
-    input_vxRobo.place(relx=0.62, rely=0.75, anchor='center')
-    input_vyRobo.place(relx=0.62, rely=0.8, anchor='center')
+    input_vxRobo.place(relx=0.63, rely=0.65, anchor='center')
+    input_vyRobo.place(relx=0.63, rely=0.7, anchor='center')
 
     # ax_robo / ay_robo
-    input_axRobo.place(relx=0.62, rely=0.85, anchor='center')
-    input_ayRobo.place(relx=0.62, rely=0.9, anchor='center')
+    input_axRobo.place(relx=0.63, rely=0.75, anchor='center')
+    input_ayRobo.place(relx=0.63, rely=0.8, anchor='center')
 
 
     # ========================================
     #                 CONFIG
     # ========================================
-    instante_input.configure(bg='white', fg='#2d2e30', font=('Helvetica', 10, 'bold'))
+    instante_input.configure(bg='white', fg='#2d2e30', font=('Helvetica', 12, 'bold'))
     window_title.configure(font=('Helvetica', 12, 'bold'), bg='#FAFBFF', fg='#2d2e30')
     label_instante.configure(font=('Helvetica', 12, 'normal'), bg='#FAFBFF', fg='#2d2e30')
 
@@ -380,31 +380,43 @@ def visualizar_dados():
     label_ayRobo.configure(font=('Helvetica', 12, 'normal'), bg='#FAFBFF', fg='#2d2e30')
     
     def visualizar():
+        i = int(instante_input.get())
+
         # lista_xRobo / lista_yRobo
+        input_xRobo.delete(0, END)
+        input_yRobo.delete(0, END)
         input_xRobo.insert(0, lista_xRobo[i])
         input_yRobo.insert(0, lista_yRobo[i])
 
         # bola_x_pos / bola_y_pos
+        input_xBola.delete(0, END)
+        input_yBola.delete(0, END)
         input_xBola.insert(0, bola_x_pos[i])
         input_yBola.insert(0, bola_y_pos[i])
 
         # velocidade_robo / aceleracao_robo
+        input_vRobo.delete(0, END)
+        input_aRobo.delete(0, END)
         input_vRobo.insert(0, velocidade_robo[i])
         input_aRobo.insert(0, aceleracao_robo[i])
 
         # vx_robo / vy_robo
+        input_vxRobo.delete(0, END)
+        input_vyRobo.delete(0, END)
         input_vxRobo.insert(0, vx_robo[i])
         input_vyRobo.insert(0, vy_robo[i])
 
         # ax_robo / ay_robo
+        input_axRobo.delete(0, END)
+        input_ayRobo.delete(0, END)
         input_axRobo.insert(0, ax_robo[i])
         input_ayRobo.insert(0, ay_robo[i])
 
     # ========================================
     #                  BOTÃO
     # ========================================
-    botao = Button(master, text='Enter', font=('Helvetica', 12), command=visualizar)
-    botao.place(relx=0.70, rely=0.2, anchor='center')
+    botao = Button(master, text='Enter', font=('Helvetica', 11), command=visualizar)
+    botao.place(relx=0.8, rely=0.2, anchor='center')
 
     master.mainloop()
 

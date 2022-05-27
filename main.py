@@ -90,7 +90,7 @@ Instante de interceptação: {menor_distT:.1f}''', font = ('Helvetica', 12, 'bol
     graficos_label.place(relx = 0.5, rely = 0.74, anchor = 'center')
 
     graficos_label.configure(bg="#FAFBFF", fg='black')
-    
+
     
     # ==============================================
     # [ PLOTANDO OS GRÁFICOS DE ACORDO COM A OPÇÃO ]
@@ -163,14 +163,14 @@ Instante de interceptação: {menor_distT:.1f}''', font = ('Helvetica', 12, 'bol
         #   VELOCIDADE DO ROBÔ EM FUNÇÃO DO TEMPO
 
         plotar_grafico('Velocidade do robô em função do Tempo',
-                        lista_tempo, velocidade_robo, 's', 'm/s')
+                        lista_tempo, velocidade_robo, 'Segundos', 'm/s')
         # ------------------------------------------
 
         # ------------------------------------------
         #   ACELERAÇÃO DO ROBÔ EM FUNÇÃO DO TEMPO
         
         plotar_grafico('Aceleração do robô em função do Tempo',
-                        lista_tempo, aceleracao_robo, 's', 'm/s²')
+                        lista_tempo, aceleracao_robo, 'Segundos', 'm/s²')
         # ------------------------------------------
 
         # ------------------------------------------
@@ -217,7 +217,7 @@ Instante de interceptação: {menor_distT:.1f}''', font = ('Helvetica', 12, 'bol
 
         plotar_grafico('Distância entre o robô e a bola em função do tempo',
                        intercepto_tRobo, distancia_robo_bola,
-                       's', 'm')
+                       'Segundos', 'Metros')
         # ------------------------------------------
 
     # =============================
