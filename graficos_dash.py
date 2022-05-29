@@ -139,8 +139,8 @@ def plotar_grafico_dash():
         elif selected_type == 'traj_roboX':
             return {'data' : [
                     go.Scatter(
-                        x = intercepto_tRobo,
-                        y = intercepto_xRobo,
+                        x = intercepto_t,
+                        y = intercepto_x,
                         mode = 'lines',
                         marker = {'color' : '#5B0FFF'}
                         )
@@ -160,8 +160,8 @@ def plotar_grafico_dash():
         elif selected_type == 'traj_roboY':
             return {'data' : [
                     go.Scatter(
-                        x = intercepto_tRobo,
-                        y = intercepto_yRobo,
+                        x = intercepto_t,
+                        y = intercepto_y,
                         mode = 'lines',
                         marker = {'color' : '#5B0FFF'}
                         )
