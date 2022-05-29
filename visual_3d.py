@@ -3,7 +3,7 @@
 from logica_robo import * 
 from vpython     import *
 from logica_robo import *
-from sympy    import *
+from sympy       import *
 # ====================================================
 
 # Listas para o momento de interceptação
