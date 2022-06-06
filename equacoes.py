@@ -133,7 +133,7 @@ def equacao_da_reta(pos_inicial_robo, pos_final_robo, x_robo, y_robo,
 
 
     # ====----====----====----====----====----====----====----====
-    #    [ Encontra as componentes VX e VY, e AX e AY do robô ]
+    #    [ Encontra as componentes VX/VY e AX/AY do robô ]
     # ====----====----====----====----====----====----====----====
 
     # Cálculo da direção:
@@ -148,11 +148,11 @@ def equacao_da_reta(pos_inicial_robo, pos_final_robo, x_robo, y_robo,
     for index in range(len(velocidade_robo)):
         teta = atan(m)
         
-        # vx = v0 * cos(teta)          ax = a0 * cos(teta)
+        # vx = v0 * cos(teta)          vy = v0 * sen(teta)
         vx_robo.append(velocidade_robo[index] * cos(teta))
         vy_robo.append(velocidade_robo[index] * sin(teta))
 
-        # vy = v0 * sen(teta)          ay = a0 * sen(teta)
+        # ax = a0 * cos(teta)          ay = a0 * sen(teta)
         ax_robo.append(aceleracao_robo[index] * cos(teta))
         ay_robo.append(aceleracao_robo[index] * sin(teta))
         # print(teta)

@@ -261,6 +261,9 @@ master.mainloop()
 
 
 def visualizar_dados():
+    # Variáveis globais
+    global lista_xRobo, lista_yRobo, lista_tempo
+
     master = tk.Tk()
     master.geometry('600x600')
     master.title('Visualização dos Dados')
@@ -390,6 +393,8 @@ def visualizar_dados():
     label_ayRobo.configure(font=('Helvetica', 12, 'normal'), bg='#FAFBFF', fg='#2d2e30')
     
     def visualizar():
+        global vx_robo, vy_robo, ax_robo, ay_robo
+
         i = int(instante_input.get())
 
         # lista_xRobo / lista_yRobo
@@ -455,4 +460,3 @@ print(f'''
 {ay_robo = }\n
 {intercepto = }\n
 ''')
-

@@ -99,7 +99,7 @@ def plotar_trajetoria_intercepto(xB, yB, xR, yR, tempo_dist, intercepto):
 
     return -> gráfico da trajetória
     '''
-
+    global bola_x_pos, bola_y_pos
 
     # [ GRÁFICO DA INTERCEPTAÇÃO DO ROBÔ ]
     if intercepto == True:

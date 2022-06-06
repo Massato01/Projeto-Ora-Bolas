@@ -1,8 +1,8 @@
 # ==================================================
 # ------------------ BIBLIOTECAS -------------------
-import tkinter     as     tk
-from   plot_graficos    import *
-from   visual_3d   import *
+import tkinter       as     tk
+from   plot_graficos import *
+from   visual_3d     import *
 # ==================================================
 
 # ======================================
@@ -87,6 +87,7 @@ Instante de interceptação: {menor_distT:.1f}''', font = ('Helvetica', 12, 'bol
     # [ PLOTANDO OS GRÁFICOS DE ACORDO COM A OPÇÃO ]
     # ==============================================
     def plotar_grafico_escolhido():
+        global vx_robo, vy_robo, ax_robo, ay_robo
         # ------------------------------------------
         #          TRAJETÓRIA DA BOLA
 
